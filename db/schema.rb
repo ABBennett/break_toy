@@ -17,13 +17,15 @@ ActiveRecord::Schema.define(version: 20160117160557) do
   enable_extension "plpgsql"
 
   create_table "chats", force: :cascade do |t|
-    t.string   "title",                        null: false
-    t.integer  "sender_id",                    null: false
-    t.integer  "recipient_id",                 null: false
-    t.boolean  "archive",      default: false, null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string   "title"
+    t.integer  "sender_id",    null: false
+    t.integer  "recipient_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
+
+  add_index "chats", ["recipient_id"], name: "index_chats_on_recipient_id", using: :btree
+  add_index "chats", ["sender_id"], name: "index_chats_on_sender_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                            null: false
