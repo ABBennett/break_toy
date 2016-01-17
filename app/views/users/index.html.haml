@@ -2,7 +2,6 @@
   - @users.each do |user|
     = link_to user_path(user) do
       .user
-        %p= user.username
-        %p= user.email
+        %li= user.username 
 - else
   %h2 No results found
