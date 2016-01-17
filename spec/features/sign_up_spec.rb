@@ -11,7 +11,7 @@ feature 'user signs up' do
       fill_in 'Username', with: 'Jon'
       fill_in 'Email', with: 'user@example.com'
       fill_in 'user_password', with: 'password'
-      fill_in 'Password Confirmation', with: 'password'
+      fill_in 'Password confirmation', with: 'password'
       click_button 'Sign up'
 
       expect(page).to have_content("You're in!")
@@ -28,7 +28,7 @@ feature 'user signs up' do
 
     scenario 'password confirmation does not match confirmation' do
       fill_in 'user_password', with: 'password'
-      fill_in 'Password Confirmation', with: 'somethingdifferent'
+      fill_in 'Password confirmation', with: 'somethingdifferent'
 
       click_button 'Sign up'
       expect(page).to have_content("doesn't match")

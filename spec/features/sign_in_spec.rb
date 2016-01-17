@@ -5,12 +5,13 @@ feature 'user signs in' do
 
   before do
     visit root_path
+    click_link "Sign In"
   end
 
   scenario 'an existing user speciifies a valid email and password' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Sign In'
+    click_button 'Log in'
 
     expect(page).to have_content('Welcome Back!')
     expect(page).to have_content('Sign Out')
@@ -20,7 +21,7 @@ feature 'user signs in' do
   scenario 'a nonexistant email and password is supplied' do
     fill_in 'Email', with: 'nobody@example.com'
     fill_in 'Password', with: 'password'
-    click_button 'Sign In'
+    click_button 'Log in'
 
     expect(page).to have_content('Invalid email or password.')
     expect(page).to_not have_content('Welcome Back!')
@@ -30,7 +31,7 @@ feature 'user signs in' do
   scenario 'an existing email with the wrong password is denied access' do
     fill_in 'user_email', with: user.email
     fill_in 'Password', with: 'incorrect'
-    click_button 'Sign In'
+    click_button 'Log in'
 
     expect(page).to have_content('Invalid email or password.')
     expect(page).to_not have_content('Welcome Back!')
@@ -40,7 +41,7 @@ feature 'user signs in' do
   scenario 'an already authenticated user cannot re-sign in' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
-    click_button 'Sign In'
+    click_button 'Log in'
 
     expect(page).to have_content('Sign Out')
     expect(page).to_not have_content('Sign In')
