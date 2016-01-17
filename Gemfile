@@ -7,6 +7,8 @@ gem 'haml'
 gem 'simple_form'
 gem 'devise'
 gem 'faker'
+gem 'private_pub'
+gem 'thin'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'

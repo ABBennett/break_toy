@@ -1,7 +1,0 @@
-- if !@users.empty?
-  - @users.each do |user|
-    = link_to user_path(user) do
-      .user
-        %li= user.username 
-- else
-  %h2 No results found

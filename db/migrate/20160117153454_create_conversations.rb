@@ -1,11 +1,10 @@
 class CreateConversations < ActiveRecord::Migration
   def change
     create_table :conversations do |t|
-      t.string :title
-      t.integer :sender_id, null: false
-      t.integer :recipient_id, null: false
+      t.integer :sender_id
+      t.integer :recipient_id
 
-      t.timestamps null: false
+      t.timestamps
     end
 
     add_index :conversations, :sender_id
