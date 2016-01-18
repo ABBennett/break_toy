@@ -2,6 +2,8 @@
   - @users.each do |user|
     = link_to user_path(user) do
       .user
-        %li= user.username 
+        %li= user.username
+    = link_to "Start a Convo", new_conversation_path(user)
+    %hr
 - else
   %h2 No results found
