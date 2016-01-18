@@ -5,7 +5,7 @@
         %li= user.username
     = form_for @conversation do |f|
       = f.hidden_field :recipient_id, value: user.id
-      = f.submit "Start convo"
+      = f.submit "Start Conversation", id: user.id 
     %hr
 - else
   %h2 No results found
