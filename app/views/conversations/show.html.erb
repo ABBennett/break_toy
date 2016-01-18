@@ -1,7 +1,6 @@
 
 <h1>Chatroom</h1>
 
-<%= form_for [@conversation, @message] do |f| %>
-  <%= f.text_area :body %>
-  <%= f.submit "Send" %>
-<% end %>
+<div class="message-input">
+  <%= render 'messages/form' %>
+</div>
