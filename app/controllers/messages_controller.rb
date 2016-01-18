@@ -1,5 +1,11 @@
 class MessagesController < ApplicationController
 
+  def index
+    binding.pry
+    @conversation = Conversation.find(params[:conversation_id])
+    @messages = @conversation.messages
+  end
+
   def create
     @conversation = Conversation.find(params[:conversation_id])
     @message = @conversation.messages.new(message_params)
