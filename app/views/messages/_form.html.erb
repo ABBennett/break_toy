@@ -1,0 +1,10 @@
+<p>
+  (this is nested from the message form partial)
+</p>
+<%= simple_form_for(@conversation, @message) do |f| %>
+  <%= f.label :message %>
+  <%= f.input_field :message %>
+  <%= f.error :username, id: 'user_name_error' %>
+  <%= f.full_error :token %>
+  <%= f.submit 'Save' %>
+<% end %>

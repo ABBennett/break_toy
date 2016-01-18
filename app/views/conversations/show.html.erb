@@ -1,1 +1,6 @@
-<h1>Show of a Converation</h1>
+<h1>Conversation with a user</h1>
+
+<%= form_for [@conversation, @message] do |f| %>
+  <%= f.text_area :body %>
+  <%= f.submit "Send" %>
+<% end %>

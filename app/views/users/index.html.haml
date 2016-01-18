@@ -3,7 +3,9 @@
     = link_to user_path(user) do
       .user
         %li= user.username
-    = link_to "Start a Convo", new_conversation_path(user)
+    = form_for @conversation do |f|
+      = f.hidden_field :recipient_id, value: user.id
+      = f.submit "Start convo"
     %hr
 - else
   %h2 No results found
