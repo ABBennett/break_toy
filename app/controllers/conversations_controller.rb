@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  before_action :signed_in_flash, only: [:create]
   def index
   end
 
@@ -13,18 +14,13 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    if !user_signed_in?
-      redirect_to users_path
-      flash[:alert] = "You must sign in to start a conversation"
+    @conversation = Conversation.new(conversation_params)
+    @conversation.sender = current_user
+    if @conversation.save
+      redirect_to conversation_path(@conversation)
     else
-      @conversation = Conversation.new(conversation_params)
-      @conversation.sender = current_user
-      if @conversation.save
-        redirect_to conversation_path(@conversation)
-      else
-        redirect_to users_path
-        flash[:alert] = 'You are unable to chat with this user'
-      end
+      redirect_to users_path
+      flash[:alert] = 'You are unable to chat with this user'
     end
   end
 
@@ -32,5 +28,10 @@ class ConversationsController < ApplicationController
     params.require(:conversation).permit(:recipient_id)
   end
 
-  
+  def signed_in_flash
+    if !user_signed_in?
+      flash[:alert] = "You must sign in to start a conversation"
+      redirect_to users_path
+    end
+  end
 end
