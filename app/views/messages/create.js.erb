@@ -1,2 +1,4 @@
-$(".message-show-container").append("<%= j render @message %>");
+<% publish_to "/messages/new" do %>
+  $(".message-show-container").append("<%= j render @message %>");
+<% end %>
 $("#message_body").val("");

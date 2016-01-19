@@ -6,7 +6,12 @@ FactoryGirl.define do
   end
 
   factory :conversation do
-  
+    sender { FactoryGirl.create :user }
+    recipient { FactoryGirl.create :user }
+  end
+
+  factory :message do
+    conversation
   end
 
 end

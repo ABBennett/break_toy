@@ -1,8 +1,12 @@
 
 <h1>Chatroom</h1>
+
 <div class="message-show-container">
   <%= render @messages %>
 </div>
+
 <div class="message-form-container">
   <%= render 'messages/form' %>
 </div>
+
+<%= subscribe_to "/messages/new" %>

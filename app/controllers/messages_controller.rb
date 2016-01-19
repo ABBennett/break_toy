@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
       respond_to do |format|
         format.js # render messages/create.js.erb
         format.html { redirect_to conversation_path(@conversation) }
+        PrivatePub.publish_to("/messages/new", message: @message)
       end
     else
       redirect_to users_path
