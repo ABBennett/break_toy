@@ -2,7 +2,7 @@
   - @users.each do |user|
     = link_to user_path(user) do
       .user
-        %li= user.username
+        %li.username-index= user.username
     = form_for @conversation do |f|
       = f.hidden_field :recipient_id, value: user.id
       = f.submit "Start Conversation", id: user.id
