@@ -25,7 +25,6 @@ feature "visitor visits a conversation show page" do
 
     scenario "not signed in user clicks 'Start Conversation'" do
       visit root_path
-      save_and_open_page
       first(:button, "Start Conversation").click
 
       expect(page).to have_content("You must sign in to start a conversation")
