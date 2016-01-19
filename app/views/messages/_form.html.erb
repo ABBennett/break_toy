@@ -1,0 +1,5 @@
+<%= form_for [@conversation, @message] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body, placeholder: "Say Something!" %>
+  <%= f.submit "Send" %>
+<% end %>
