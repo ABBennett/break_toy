@@ -1,8 +1,11 @@
 
-<h1>Chatroom</h1>
-<div class="message-show-container">
-  <%= render @messages %>
+<h1 class="chat-title">Chatroom</h1>
+<div class="fixed-height-container">
+  <div class="message-show-container">
+    <%= render @messages %>
+  </div>
 </div>
+
 <div class="message-form-container">
   <%= render 'messages/form' %>
 </div>
