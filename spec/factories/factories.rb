@@ -5,4 +5,8 @@ FactoryGirl.define do
     password '12345678'
   end
 
+  factory :conversation do
+  
+  end
+
 end

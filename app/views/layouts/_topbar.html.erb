@@ -10,13 +10,16 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="active"><a href="#">Right Button Active</a></li>
-      <li class="has-dropdown">
-        <a href="#">Right Button Dropdown</a>
-        <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
-          <li class="active"><a href="#">Active link in dropdown</a></li>
-        </ul>
+      <% if user_signed_in? %>
+        <li class="active"><a href=<%="users/#{current_user.id}"%>, id: "#{current_user.id}"><%= "Signed in as #{current_user.username}"%></a></li>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+  
+          <ul class="dropdown">
+            <li><a href="#">First link in dropdown</a></li>
+            <li class="active"><a href="#">Active link in dropdown</a></li>
+          </ul>
+        <% end %>
       </li>
     </ul>
 

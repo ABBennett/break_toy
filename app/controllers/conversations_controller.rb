@@ -13,17 +13,24 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = Conversation.new(conversation_params)
-    @conversation.sender = current_user
-    if @conversation.save
-      redirect_to conversation_path(@conversation)
-    else
+    if !user_signed_in?
       redirect_to users_path
-      flash[:alert] = 'You are unable to chat with this user'
+      flash[:alert] = "You must sign in to start a conversation"
+    else
+      @conversation = Conversation.new(conversation_params)
+      @conversation.sender = current_user
+      if @conversation.save
+        redirect_to conversation_path(@conversation)
+      else
+        redirect_to users_path
+        flash[:alert] = 'You are unable to chat with this user'
+      end
     end
   end
 
   def conversation_params
     params.require(:conversation).permit(:recipient_id)
   end
+
+  
 end

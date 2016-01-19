@@ -5,7 +5,7 @@
         %li= user.username
     = form_for @conversation do |f|
       = f.hidden_field :recipient_id, value: user.id
-      = f.submit "Start Conversation", id: user.id 
+      = f.submit "Start Conversation", id: user.id
     %hr
 - else
-  %h2 No results found
+  %h2 It seems like there are no other users :(
