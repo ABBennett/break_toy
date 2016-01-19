@@ -15,11 +15,10 @@ feature "visitor sees a list of other users" do
     end
 
     scenario "sees a list of other users" do
-      save_and_open_page
       expect(page).to have_link user1.username
       expect(page).to have_content user2.username
-      expect(page).to_not have_content user.username
-
+      expect(page).to have_content "Signed in as #{user.username}"
+      expect(page).to_not have_css(".username-index li", text: "#{user.username}")
     end
   end
 end
