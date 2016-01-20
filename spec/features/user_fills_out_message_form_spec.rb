@@ -2,16 +2,15 @@ require 'rails_helper'
 
 feature "visitor visits a conversation show page" do
   context "clicking on the Start Conversation button" do
-    let(:user) { FactoryGirl.create(:user) }
-    let!(:user2) { FactoryGirl.create(:user) }
+    let!(:conversation) { FactoryGirl.create(:conversation) }
 
     before do
       visit root_path
       click_link "Sign In"
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
+      fill_in 'Email', with: conversation.sender.email
+      fill_in 'Password', with: conversation.sender.password
       click_button 'Log in'
-      click_button 'Start Conversation'
+      visit conversation_path(conversation)
     end
 
     scenario "user submits form for new message" do

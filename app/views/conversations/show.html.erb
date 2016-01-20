@@ -1,4 +1,3 @@
-
 <h1 class="chat-title">Chatroom</h1>
 <div class="fixed-height-container">
   <div class="message-show-container">
@@ -9,3 +8,5 @@
 <div class="message-form-container">
   <%= render 'messages/form' %>
 </div>
+
+<%= subscribe_to "/messages/new" %>
