@@ -1,4 +1,4 @@
 <p class="message">
   <%= message.body %>
-  <span class="created-at"><%= message.created_at %></span>
+  <span class="created-at"><time datetime="<%= message.created_at %>" title="<%= message.created_at.strftime("%d %b  %Y at %I:%M%p") %>"></span>
 </p>
