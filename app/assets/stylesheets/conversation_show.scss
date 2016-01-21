@@ -15,7 +15,20 @@ background: rgba(255,255,255,0.5);
 margin: 0 0 5px 0;
 }
 
+.title-scores-container {
+  display: inline;
+}
+
+#ratee {
+  text-align: left;
+}
+
+#rater {
+  text-align: right;
+}
+
 .chat-title {
+  float: left;
   text-align: center;
 }
 
@@ -31,10 +44,9 @@ margin: 0 0 5px 0;
 
 .fixed-height-container{
   @include shadow;
-  float:left;
   height: 50%;
   width: 90%;
-  margin-left: 10px;
+  margin: auto;
   padding:3px;
   // background:#666;
   // margin: 0 0 2px 10px;
@@ -46,17 +58,22 @@ margin: 0 0 5px 0;
   background:#fff;
 }
 
+// .message-form-container {
+//   margin: auto;
+// }
+
 #message-label {
   display: none;
 }
 
 #new_message {
-  margin: 0 0 5px 10px;
+  margin: 10px 0 0 0;
 }
 
 #message_body {
   @include shadow;
   width: 91.5%;
   height: 100px;
+  margin: auto;
 
 }
