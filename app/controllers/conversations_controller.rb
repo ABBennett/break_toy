@@ -18,7 +18,6 @@ class ConversationsController < ApplicationController
 
   def new
     @conversation = Conversation.new
-
   end
 
   def create
@@ -31,6 +30,9 @@ class ConversationsController < ApplicationController
       flash[:alert] = 'You are unable to chat with this user'
     end
   end
+
+
+
 
   def conversation_params
     params.require(:conversation).permit(:recipient_id)

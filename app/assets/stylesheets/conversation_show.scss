@@ -32,14 +32,29 @@ margin: 0 0 5px 0;
   text-align: center;
 }
 
+.chatboxmessagecontent {
+  padding-left: 5px;
+  padding-bottom: 10px;
+}
+// .self {
+//   color: blue;
+// }
+//
+// .other {
+//   color: red;
+// }
+
 .created-at {
   font-size: 10px;
 }
 
-.message {
-  margin-bottom: 0;
-  margin-left: 10px;
+.username {
+  font-size: 12px;
+}
 
+.message {
+  background-color: $ghost;
+  margin: 0;
 }
 
 .fixed-height-container{
