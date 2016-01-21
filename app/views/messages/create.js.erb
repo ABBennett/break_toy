@@ -1,14 +1,11 @@
 <% publish_to "/messages/new" do %>
-  // var sender_id = "<%= @message.user.id %>";
-  // var reciever_id = $('meta[name=user-id]').attr("content");
-
-  $(".message-show-container").append("<%= j render @message %>");
-  // if (sender_id != recipient_id) {
-  //       chatBox.chatWith(id);
-  //       chatbox.children().last().removeClass("self").addClass("other");
-  //       chatbox.scrollTop(chatbox[0].scrollHeight);
-  //       chatBox.notify();
-  //   }
+  var sender_id = "<%= @message.user.id %>";
+  var receiver_id = $(".user_id").data().userId;
+  var chatBox = $(".message-show-container");
+  chatBox.append("<%= j render @message %>");
+  if (sender_id != receiver_id) {
+    chatBox.children().last().removeClass("self").addClass("other");
+  }
 <% end %>
 $("#message_body").val("");
 // $(function() {

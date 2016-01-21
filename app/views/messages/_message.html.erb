@@ -1,4 +1,4 @@
-<div class="<%= self_or_other(@message) %>">
+<div class="<%= self_or_other(message) %>">
   <div class="chatboxmessagecontent">
     <p class='message'><%= message.body %></p>
     <span class="username"><%="#{message.user.username} at "%></span><span class="created-at"><%= message.created_at %></span>
