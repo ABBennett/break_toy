@@ -6,10 +6,14 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.new(rating_params)
-    @rating.conversation = Conversation.find(params[:conversation_id])
+    @conversation = Conversation.find(params[:conversation_id])
+    @rating.conversation = @conversation
 
-    if @rating.save
-      redirect_to users_path
+    if @rating.save!
+      respond_to do |format|
+        format.html { redirect_to @conversation }
+        format.js # render ratings/create.js.erb
+      end
     end
   end
 
