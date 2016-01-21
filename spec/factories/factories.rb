@@ -14,4 +14,10 @@ FactoryGirl.define do
     conversation
   end
 
+  # factory :rating do
+  #   conversation
+  #   rater { FactoryGirl.create :user }
+  #   ratee { FactoryGirl.create :user }
+  # end
+
 end

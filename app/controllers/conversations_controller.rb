@@ -6,8 +6,14 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
+    @recipient_id = @conversation.recipient.id
+    @sender_id = @conversation.sender.id
+
     @message = Message.new
     @messages = @conversation.messages
+
+    @rating = Rating.new
+
   end
 
   def new

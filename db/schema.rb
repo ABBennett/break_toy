@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117204725) do
+ActiveRecord::Schema.define(version: 20160120201100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(version: 20160117204725) do
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "rater_id",        null: false
+    t.integer  "ratee_id",        null: false
+    t.integer  "conversation_id", null: false
+    t.integer  "score",           null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "ratings", ["rater_id", "ratee_id", "conversation_id"], name: "index_ratings_on_rater_id_and_ratee_id_and_conversation_id", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                            null: false
