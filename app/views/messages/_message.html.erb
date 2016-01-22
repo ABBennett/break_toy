@@ -1,7 +1,9 @@
-<div class="<%= self_or_other(message) %>">
+<div class="<%= self_or_other(message) %> column small-12">
   <div class="chatboxmessagecontent">
-    <p class='message'><%= message.body %></p>
-    <span class="username"><%="#{message.user.username} at "%></span><span class="created-at"><%= message.created_at %></span>
+    <p><%= message.body %></p>
+    <time datetime="<%= message.created_at %>" title="<%= message.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
+      <%= message_interlocutor(message).username %> • <%= message.created_at.strftime("%H:%M %p") %>
     </time>
+
   </div>
 </div>
