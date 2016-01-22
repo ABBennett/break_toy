@@ -13,3 +13,4 @@
 /tmp
 /coverage
 .env
+/config/initializers/private_pub.rb
