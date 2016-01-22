@@ -1,5 +1,11 @@
 <% publish_to "/messages/new" do %>
-  $(".message-show-container").append("<%= j render @message %>");
+  var sender_id = "<%= @message.user.id %>";
+  var receiver_id = $(".user_id").data().userId;
+  var chatBox = $(".message-show-container");
+  chatBox.append("<%= j render @message %>");
+  if (sender_id != receiver_id) {
+    chatBox.children().last().removeClass("self").addClass("other");
+  }
 <% end %>
 $("#message_body").val("");
 // $(function() {

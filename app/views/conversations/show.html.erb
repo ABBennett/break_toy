@@ -1,12 +1,26 @@
-<h1 class="chat-title">Chatroom</h1>
+<div class="title-scores-container clearfix">
+  <div class="score column small-4" id="ratee">
+    <h2 class="rating">Rating</h2>
+  </div>
+
+  <h1 class="chat-title column small-4">Chatroom </h1>
+
+  <div class="score column small-4" id="rater">
+    <h2 class="user-rating">Rating</h2>
+  </div>
+</div>
+
 <div class="fixed-height-container">
   <div class="message-show-container">
     <%= render @messages %>
   </div>
 </div>
 
-<div class="message-form-container">
+<div class="message-form-container clearfix">
   <%= render 'messages/form' %>
+</div>
+<div class="rating-form">
+  <%= render 'ratings/form' %>
 </div>
 
 <%= subscribe_to "/messages/new" %>

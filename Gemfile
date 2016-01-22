@@ -11,6 +11,7 @@ gem 'faker'
 gem 'private_pub'
 gem 'thin'
 
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
 # Use SCSS for stylesheets
@@ -54,6 +55,8 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :development do
