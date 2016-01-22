@@ -2,8 +2,11 @@
   <div class="score column small-4" id="ratee">
     <h2 class="rating">Rating</h2>
   </div>
-
-  <h1 class="chat-title column small-4">Chatroom </h1>
+  <% if current_user.id == @recipient_id %>
+  <h2 class="chat-title column small-4">Chatroom with <%= @conversation.sender.username%></h2>
+  <% else %>
+  <h2 class="chat-title column small-4">Chatroom with <%= @conversation.recipient.username%> </h2>
+  <% end %>
 
   <div class="score column small-4" id="rater">
     <h2 class="user-rating">Rating</h2>
