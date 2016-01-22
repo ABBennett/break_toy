@@ -14,10 +14,12 @@ FactoryGirl.define do
     conversation
   end
 
-  # factory :rating do
-  #   conversation
-  #   rater { FactoryGirl.create :user }
-  #   ratee { FactoryGirl.create :user }
-  # end
+  factory :rating do
+    conversation
+
+    rater { conversation.sender}
+    ratee { conversation.recipient}
+    score { rand(1..10) }
+  end
 
 end
