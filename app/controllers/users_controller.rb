@@ -13,6 +13,36 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @ratings = Rating.where(ratee_id: params[:id])
+    @rates = Rating.where(rater_id: params[:id])
+
+    @average_score = average_score(@user)
+    @average_rate = average_rate(@user)
+  end
+
+
+  def average_score(user)
+    if !@ratings.empty?
+      sum = 0
+      @ratings.each do |rating|
+        sum += rating.score
+      end
+      average = (sum/@ratings.count.to_f).round(2)
+    else
+      "N/A"
+    end
+  end
+
+  def average_rate(user)
+    if !@rates.empty?
+      sum = 0
+      @rates.each do |rating|
+        sum += rating.score
+      end
+      average = (sum/@rates.count.to_f).round(2)
+    else
+      "N/A"
+    end
   end
 
 end
