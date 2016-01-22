@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :signed_in_flash, only: [:create]
-  before_action :participant?, only: [:show]
+  # before_action :participant?, only: [:show]
   def index
   end
 

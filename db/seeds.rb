@@ -34,9 +34,28 @@ end
     conversation: conversation,
     user: conversation.sender,
   )
+  messages << Message.new(
+    body: Faker::Hipster.sentence,
+    conversation: conversation,
+    user: conversation.recipient,
+  )
 end
 messages.each do |message|
   message.save!
+end
+
+
+conversations.each do |conversation|
+  ratings << Rating.new(
+  rater: conversation.sender,
+  ratee: conversation.recipient,
+  conversation: conversation,
+  score: rand(1..10)
+  )
+end
+
+ratings.each do |rating|
+  rating.save!
 end
 
 # 10.times do
