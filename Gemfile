@@ -10,6 +10,7 @@ gem 'devise'
 gem 'faker'
 gem 'private_pub'
 gem 'thin'
+gem 'foreman'
 
 
 # Use postgresql as the database for Active Record
