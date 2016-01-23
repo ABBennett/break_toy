@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :signed_in_flash, only: [:create]
-  before_action :participant?, only: [:show]
+  # before_action :participant?, only: [:show]
   def index
   end
 
@@ -45,11 +45,11 @@ class ConversationsController < ApplicationController
     end
   end
 
-  def participant?
-    @conversation = Conversation.find(params[:id])
-    unless (current_user.id == @conversation.recipient_id) || (current_user.id == @conversation.sender_id)
-      redirect_to users_path
-      flash[:alert] = 'You are not authorized to enter this chat'
-    end
-  end
+  # def participant?
+  #   @conversation = Conversation.find(params[:id])
+  #   unless (current_user.id == @conversation.recipient_id) || (current_user.id == @conversation.sender_id)
+  #     redirect_to users_path
+  #     flash[:alert] = 'You are not authorized to enter this chat'
+  #   end
+  # end
 end

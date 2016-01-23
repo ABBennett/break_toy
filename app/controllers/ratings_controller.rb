@@ -9,11 +9,14 @@ class RatingsController < ApplicationController
     @conversation = Conversation.find(params[:conversation_id])
     @rating.conversation = @conversation
 
-    if @rating.save!
+    if @rating.save
       respond_to do |format|
         format.html { redirect_to @conversation }
         format.js # render ratings/create.js.erb
       end
+    else
+      redirect_to conversation_path(@conversation)
+      flash[:alert] = 'You can only rate once!'
     end
   end
 
