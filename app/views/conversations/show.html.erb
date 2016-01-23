@@ -1,12 +1,17 @@
 <div class="title-scores-container clearfix">
   <div class="score column small-4" id="ratee">
-    <h2 class="rating">Rating</h2>
+    <h2 class="rating"><%= link_to "#{@conversation.sender.username}", user_path(@conversation.sender)%>: <%= @conversation.sender.average_score %></h2>
+    <li>Average rating given: <%= @conversation.sender.average_rate%></li>
   </div>
-  <h2 class="chat-title column small-4">Chatroom with <%= @conversation.sender.username%> & <%= @conversation.recipient.username%></h2>
+  <h2 class="chat-title column small-4">
+    Chatroom with <%= link_to "#{@conversation.sender.username}", user_path(@conversation.sender)%>
+    & <%= link_to "#{@conversation.recipient.username}", user_path(@conversation.recipient)%></h2>
 
 
   <div class="score column small-4" id="rater">
-    <h2 class="user-rating">Rating</h2>
+    <h2 class="rating"><%= link_to "#{@conversation.recipient.username}", user_path(@conversation.recipient)%>: <%= @conversation.recipient.average_score %></h2>
+    <li>Average rating given: <%= @conversation.recipient.average_rate%></li>
+  </div>
   </div>
 </div>
 
@@ -16,11 +21,13 @@
   </div>
 </div>
 
-<div class="message-form-container clearfix">
-  <%= render 'messages/form' %>
-</div>
-<div class="rating-form">
-  <%= render 'ratings/form' %>
-</div>
+<% if user_signed_in? && current_user == @conversation.sender || current_user == @conversation.recipient %>
+  <div class="message-form-container clearfix">
+    <%= render 'messages/form' %>
+  </div>
+  <div class="rating-form">
+    <%= render 'ratings/form' %>
+  </div>
+<% end %>
 
 <%= subscribe_to "/messages/new" %>
