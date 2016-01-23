@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
       ratings.each do |rating|
         sum += rating.score
       end
-      average = (sum/ratings.count.to_f).round(2)
+      (sum / ratings.count.to_f).round(2)
     else
       "N/A"
     end
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
       ratings.each do |rating|
         sum += rating.score
       end
-      average = (sum/ratings.count.to_f).round(2)
+      (sum / ratings.count.to_f).round(2)
     else
       "N/A"
     end
