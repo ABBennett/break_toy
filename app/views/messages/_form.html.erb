@@ -1,5 +1,7 @@
-<%= form_for [@conversation, @message], remote: :true do |f| %>
-  <%= f.label :body, id: "message-label" %>
-  <%= f.text_area :body, autofocus: true, placeholder: "Say Something!" %>
-  <%= f.submit "Send" %>
+<% if user_signed_in? && current_user == @conversation.sender || current_user == @conversation.recipient %>
+  <%= form_for [@conversation, @message], remote: :true do |f| %>
+    <%= f.label :body, id: "message-label" %>
+    <%= f.text_area :body, autofocus: true, placeholder: "Say Something!" %>
+    <%= f.submit "Send" %>
+  <% end %>
 <% end %>
