@@ -15,9 +15,18 @@ feature "user visits a conversation show page" do
 
     scenario "unauthorized user tries to go to a conversation show page" do
       visit conversation_path(conversation)
-      expect(page).to_not have_content("Chatroom")
       expect(page).to_not have_css('form.new_message')
-      expect(page).to have_content('You are not authorized to enter this chat')
+      expect(page).to_not have_css('form.new_rating')
+    end
+  end
+
+  context "not signed in user" do
+    let!(:conversation) { FactoryGirl.create(:conversation) }
+
+    scenario "not signed in user views show page for convo" do
+      visit conversation_path(conversation)
+      expect(page).to_not have_css('form.new_message')
+      expect(page).to_not have_css('form.new_rating')
     end
   end
 
@@ -37,6 +46,7 @@ feature "user visits a conversation show page" do
 
       expect(page).to have_content("Chatroom")
       expect(page).to have_css('form.new_message')
+      expect(page).to have_css('form.new_rating')
     end
   end
 end
