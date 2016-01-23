@@ -7,13 +7,13 @@
 <% if !@ratings.empty?  %>
   <% @ratings.each do |rating| %>
     <li>
-      <%= link_to "#{rating.score} with #{rating.rater.username} ", conversation_path(rating.conversation) %>
+      <%= link_to "#{rating.score}: #{rating.rater.username} ", conversation_path(rating.conversation) %>
       <%= "#{rating.conversation.messages.count} messages" %>
       <time datetime="<%= rating.conversation.created_at %>" title="<%= rating.conversation.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
         • at <%= rating.conversation.created_at.strftime("%H:%M %p") %>
        </time>
        <% if !rating.conversation.messages.empty? %>
-       (<%= distance_of_time_in_words rating.conversation.messages.first.created_at, rating.conversation.messages.last.created_at %>)
+       (<%= distance_of_time_in_words rating.messages.first.created_at, rating.messages.last.created_at %>)
        <% end %>
     </li>
   <% end %>
