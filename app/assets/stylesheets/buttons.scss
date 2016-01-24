@@ -1,13 +1,14 @@
 input[type="submit"] {
-  font-size: 30px;
+  font-size: px;
 
 }
 button {
   color: #fff;
   background-color: $green-dark;
   border: none;
-  border-radius: 200px;
+  border-radius: 5px;
   box-shadow: 0 5px $green-dark1;
+  padding: 5px 10px 5px 10px;
 }
 
 button:hover,

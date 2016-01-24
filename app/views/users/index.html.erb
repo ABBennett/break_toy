@@ -12,9 +12,7 @@
     <% end %>
     <%= form_for @conversation do |f| %>
       <%= f.hidden_field :recipient_id, value: user.id %>
-      <section class="press">
       <%= f.button "Chat", id: user.id %>
-    </section>
     <% end %>
     <hr/>
   <% end %>
