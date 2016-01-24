@@ -15,13 +15,14 @@ button:hover,
 button.hover {
   background-color: $green;
   transform: translateY(1px);
+  box-shadow: 0 4px $green-dark1;
 }
 
 button:active,
 button.active {
   background-color: $green-dark1;
-  box-shadow: 0 0px #27496d;
   transform: translateY(4px);
+  box-shadow: 0 1px $green-dark1;
 }
 button:focus {
   outline: 0;
