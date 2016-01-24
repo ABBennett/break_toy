@@ -7,7 +7,7 @@ button {
   background-color: $green-dark;
   border: none;
   border-radius: 5px;
-  box-shadow: 0 5px $green-dark1;
+  box-shadow: 0 5px $green-dark2;
   padding: 5px 10px 5px 10px;
 }
 
@@ -15,14 +15,14 @@ button:hover,
 button.hover {
   background-color: $green;
   transform: translateY(1px);
-  box-shadow: 0 4px $green-dark1;
+  box-shadow: 0 4px $green-dark2;
 }
 
 button:active,
 button.active {
   background-color: $green-dark1;
   transform: translateY(4px);
-  box-shadow: 0 1px $green-dark1;
+  box-shadow: 0 1px $green-dark2;
 }
 button:focus {
   outline: 0;
