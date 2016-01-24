@@ -2,9 +2,15 @@
   background-color: $grey-light1;
   margin: 10px;
   padding: 5px;
-  border: none;
+  border: 0;
   border-radius: 5px;
   box-shadow: 0 5px $grey;
+}
+
+.user li {
+  color: $black;
+  font-size: 22px;
+  list-style: none;
 }
 
 .user:hover {
@@ -15,12 +21,6 @@
 
 .user:active {
   background-color: $grey-light1;
-  transform: translateY(4px);
   box-shadow: 0 1px $grey;
-}
-
-.user li {
-  list-style: none;
-  font-size: 22px;
-  color: $black;
+  transform: translateY(4px);
 }
