@@ -3,3 +3,5 @@ $white: #ffffff;
 $brown: #494949;
 $grey: #7C7A7A;
 $green: #2FEF5C;
+$green-dark: scale-color($green, $lightness: -30%);
+$green-dark1: scale-color($green, $lightness: -50%);

@@ -4,22 +4,23 @@ input[type="submit"] {
 }
 button {
   color: #fff;
-  background-color: #6496c8;
+  background-color: $green-dark;
   border: none;
   border-radius: 200px;
-  box-shadow: 0 5px #27496d;
+  box-shadow: 0 5px $green-dark1;
 }
 
 button:hover,
 button.hover {
-  background-color: #417cb8
+  background-color: $green;
+  transform: translateY(1px);
 }
 
 button:active,
 button.active {
-  background-color: #417cb8;
+  background-color: $green-dark1;
   box-shadow: 0 0px #27496d;
-  transform: translateY(3px);
+  transform: translateY(4px);
 }
 button:focus {
   outline: 0;
