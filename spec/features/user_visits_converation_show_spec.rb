@@ -14,7 +14,7 @@ feature "visitor visits a conversation show page" do
     end
 
     scenario "signed in user clicks 'Start Conversation'" do
-      click_button("Start Conversation")
+      click_button("Chat")
       expect(page).to have_content("Chatroom")
       expect(page).to have_css('form.new_message')
     end
@@ -26,7 +26,7 @@ feature "visitor visits a conversation show page" do
 
     scenario "not signed in user clicks 'Start Conversation'" do
       visit root_path
-      first(:button, "Start Conversation").click
+      first(:button, "Chat").click
 
       expect(page).to have_content("You must sign in to start a conversation")
       expect(page).to_not have_content("Chatroom")

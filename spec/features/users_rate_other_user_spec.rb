@@ -15,8 +15,14 @@ feature "user chats with other user" do
 
     scenario "sender rates recipient" do
       expect(page).to have_content(conversation.recipient.username)
-
-      choose "rating_score_8"
+      choose "rating_score_10"
+      click_button "Rate"
+      visit user_path(conversation.recipient)
+      expect(page).to have_content("total received: 10")
+      expect(page).to have_content("average rating given: N/A")
+      expect(page).to have_content("total given: N/A")
+      expect(page).to have_content("perfect scores: 1")
+      expect(page).to have_content("0 messages")
     end
   end
 

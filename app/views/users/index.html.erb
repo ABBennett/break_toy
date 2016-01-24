@@ -2,18 +2,15 @@
   <% @users.each do |user| %>
     <%= link_to user_path(user) do %>
       <div class="user" id=<%="username#{user.id}"%>>
-        <li>
-          <%= user.username %>
-        </li>
-        <div class="user-email" id=<%="email#{user.id}"%>>
-          <li>  </li>
-        </div>
-      </div>
+        <li><%= user.username %></li>
+        <li><%= user.average_score %></li>
+        <li>total: <%= user.total %></li>
+      <%= form_for @conversation do |f| %>
+        <%= f.hidden_field :recipient_id, value: user.id %>
+        <%= f.button "Chat", id: user.id %>
+      <% end %>
     <% end %>
-    <%= form_for @conversation do |f| %>
-      <%= f.hidden_field :recipient_id, value: user.id %>
-      <%= f.submit "Start Conversation", id: user.id %>
-    <% end %>
+  </div>
     <hr/>
   <% end %>
 <% else %>

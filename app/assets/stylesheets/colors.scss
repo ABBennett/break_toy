@@ -1,0 +1,10 @@
+$black: #000000;
+$white: #ffffff;
+$brown: #494949;
+$grey: #7C7A7A;
+$grey-light: scale-color($grey, $lightness: +50%);
+$grey-light1: scale-color($grey, $lightness: +80%);
+$green: #2FEF5C;
+$green-dark: scale-color($green, $lightness: -30%);
+$green-dark1: scale-color($green, $lightness: -50%);
+$green-dark2: scale-color($green, $lightness: -65%);

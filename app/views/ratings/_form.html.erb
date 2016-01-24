@@ -7,6 +7,6 @@
       <%= f.hidden_field :ratee_id, value: @recipient_id %>
     <% end %>
     <%= f.hidden_field :rater_id, value: current_user.id %>
-    <%= f.submit "Rate" %>
+    <%= f.button "Rate" %>
   <% end %>
 <% end %>
