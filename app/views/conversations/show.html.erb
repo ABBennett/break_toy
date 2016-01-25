@@ -15,10 +15,9 @@
   </div>
 </div>
 
-<div class="fixed-height-container">
-  <div class="chatboxcontent">
-    <%= render @messages %>
-  </div>
+
+<div class="chatboxcontent">
+  <%= render @messages %>
 </div>
 
 <% if user_signed_in? && current_user == @conversation.sender || current_user == @conversation.recipient %>
