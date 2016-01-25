@@ -15,5 +15,29 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @ratings = Rating.where(ratee_id: params[:id])
     @rates = Rating.where(rater_id: params[:id])
+
+    @conversations = unanswered | remaining
   end
+
+  def all_conversations(user)
+    b = Conversation.where(
+          Conversation.where(conversations: {recipient_id: user.id})
+          .where(conversations: {sender_id: user.id})
+          .where_values.reduce(:or))
+  end
+
+  def unanswered
+    unanswered = []
+    all_conversations(@user).each do |conversation|
+      if conversation.messages.empty? || conversation.messages.first.user != @user
+        unanswered << conversation
+      end
+    end
+    unanswered
+  end
+
+  def remaining
+    all_conversations(@user) - unanswered
+  end
+
 end

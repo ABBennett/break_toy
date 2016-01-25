@@ -9,7 +9,12 @@
 <h5><%= @user.email %></h5>
 
 
+  <h3>New Conversations</h3>
+    <% @conversations.each do |conversation| %>
+      <li><%= link_to "#{conversation.sender.username} wants to chat", conversation_path(conversation) %></li>
+    <% end %>
 <% if !@ratings.empty?  %>
+<h3>Pointed Talks</h3>
   <% @ratings.each do |rating| %>
     <li>
       <%= link_to "#{rating.score}: #{rating.rater.username} ", conversation_path(rating.conversation) %>
