@@ -9,4 +9,7 @@ class Conversation < ActiveRecord::Base
     where("conversations.sender_id =? OR conversations.recipient_id =?",user.id,user.id)
   end
 
+  def includes?(user)
+    sender == user || recipient == user
+  end
 end

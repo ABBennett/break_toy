@@ -1,4 +1,4 @@
-<div class="<%= self_or_other(message) %> small-12 columns">
+<div class="<%= message.sent_by?(current_user) %> small-12 columns">
   <div class="chatboxmessagecontent">
     <p><%= message.body %></p>
   <time datetime="<%= message.created_at %>" title="<%= message.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
