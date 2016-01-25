@@ -97,7 +97,7 @@ margin: 0 0 5px 0;
 }
 
 .fixed-height-container{
-  @include shadow;
+  // @include shadow;
   height: 50%;
   width: 90%;
   margin: auto;
@@ -132,7 +132,7 @@ margin: 0 0 5px 0;
 }
 
 #message_body {
-  @include shadow;
+  // @include shadow;
   width: 91.5%;
   height: 100px;
   margin: auto;

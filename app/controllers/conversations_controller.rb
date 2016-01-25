@@ -10,7 +10,7 @@ class ConversationsController < ApplicationController
     @sender_id = @conversation.sender.id
 
     @message = Message.new
-    @messages = @conversation.messages
+    @messages = @conversation.messages.order("created_at")
 
     @rating = Rating.new
 
