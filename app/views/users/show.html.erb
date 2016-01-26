@@ -8,8 +8,16 @@
 
 <h5><%= @user.email %></h5>
 
+<% if user_signed_in? && current_user == @user %>
+  <h3><%= @new_messages.count %> new message(s)</h3>
+  <% @new_messages.each do |conversation| %>
+    <li><%= link_to "#{conversation.messages.last.user.username} wants to talk!", conversation_path(conversation) %></li>
+  <% end %>
+<% end %>
+
 
 <% if !@ratings.empty?  %>
+<h3>Pointed Talks</h3>
   <% @ratings.each do |rating| %>
     <li>
       <%= link_to "#{rating.score}: #{rating.rater.username} ", conversation_path(rating.conversation) %>

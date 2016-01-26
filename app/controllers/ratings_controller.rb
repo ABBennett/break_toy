@@ -10,6 +10,7 @@ class RatingsController < ApplicationController
     @rating.conversation = @conversation
 
     if @rating.save
+      @conversation.update_attribute(:rated?, true)
       respond_to do |format|
         format.html { redirect_to @conversation }
         format.js # render ratings/create.js.erb

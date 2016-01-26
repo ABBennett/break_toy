@@ -15,5 +15,30 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @ratings = Rating.where(ratee_id: params[:id])
     @rates = Rating.where(rater_id: params[:id])
+
+    @new_messages = unanswered_unrated(@user)
   end
+
+  def unanswered_unrated(user)
+    unanswered & all_unrated_conversations(user)
+  end
+
+  def all_unrated_conversations(user)
+    b = Conversation.where(
+          Conversation.where(conversations: {recipient_id: user.id})
+          .where(conversations: {sender_id: user.id})
+          .where_values.reduce(:or))
+          .where(conversations: {rated?: false})
+  end
+
+  def unanswered
+    unanswered = []
+    all_unrated_conversations(@user).each do |conversation|
+      if conversation.messages.empty? || conversation.messages.last.user != @user
+        unanswered << conversation
+      end
+    end
+    unanswered
+  end
+
 end
