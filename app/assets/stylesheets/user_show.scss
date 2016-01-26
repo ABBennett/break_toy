@@ -26,3 +26,13 @@
   padding: 0;
   height: 250px;
 }
+
+.new-messages-container h3 {
+  text-align: center;
+  border-bottom: 1px;
+  border-bottom-color: $black;
+}
+
+.new-message-body a {
+  color: $green;
+}

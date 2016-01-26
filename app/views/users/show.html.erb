@@ -8,8 +8,11 @@
   <div class="new-messages-container column small-5">
     <% if user_signed_in? && current_user == @user %>
       <h3><%= @new_messages.count %> new message(s)</h3>
-      <% @new_messages.each do |conversation| %>
-        <li><%= link_to "#{conversation.messages.last.user.username} wants to talk!", conversation_path(conversation) %></li>
+      <% @new_messages.each do |c| %>
+        <div class="new-message">
+          <li><%= link_to "#{c.messages.last.user.username}:", user_path(c.messages.last.user) %></li>
+          <li class="new-message-body"><%= link_to "#{c.messages.last.body[0..50]}", conversation_path(c) %></li>
+        </div>
       <% end %>
     <% end %>
   </div>
