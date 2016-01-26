@@ -1,7 +1,7 @@
 
 <h1><%= @user.username %>: <%= @user.average_score %></h1>
 <h5>average rating given: <%= @user.average_rate %> </h5>
-<h5>total received: <%= @user.total %> </h5>
+<h5>Talking Points: <%= @user.total %> </h5>
 <h5>total given: <%= @user.total_rates %> </h5>
 <h5>perfect scores: <%= @user.tens %> </h5>
 
@@ -14,6 +14,7 @@
     <li><%= link_to "#{conversation.messages.last.user.username} wants to talk!", conversation_path(conversation) %></li>
   <% end %>
 <% end %>
+
 
 
 <% if !@ratings.empty?  %>

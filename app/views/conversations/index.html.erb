@@ -1,4 +1,18 @@
 <h1>Index of Conversations</h1>
+
+<li>
+  <%= link_to "Total Points", conversations_path(order: "totalpoints") %>
+</li>
+<li>
+  <%= link_to "Sender Average Score", conversations_path(order: "sender") %>
+</li>
+<li>
+  <%= link_to "Recipient Average Score", conversations_path(order: "recipient") %>
+</li>
+<li>
+  <%= link_to "Message Count", conversations_path(order: "message") %>
+</li>
+
 <% @conversations.each do |c| %>
   <li><%= link_to "Talk between #{c.sender.username} and #{c.recipient.username}", conversation_path(c) %></li>
   <li><%= c.sender.average_score %></li>
@@ -22,3 +36,4 @@
   </li>
   <hr>
 <% end %>
+<%= paginate @conversations %>

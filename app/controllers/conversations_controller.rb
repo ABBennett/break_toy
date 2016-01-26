@@ -2,7 +2,22 @@ class ConversationsController < ApplicationController
   before_action :signed_in_flash, only: [:create]
   # before_action :participant?, only: [:show]
   def index
-    @conversations = Conversation.all.order("created_at DESC")
+    if params[:order] == "totalpoints"
+      @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.sender.average_score + a.recipient.average_score <=> b.sender.average_score + b.recipient.average_score }).page(params[:page]).per(10)
+    elsif params[:order] == "message"
+        @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.messages.count <=> b.messages.count }).page(params[:page]).per(10)
+    elsif params[:order] == "points"
+        @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.sender.total + a.recipient.total <=> b.sender.total + b.recipient.total }).page(params[:page]).per(10)
+    elsif params[:order] == "sender"
+      @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.sender.average_score || a.recipient.average_score <=> b.sender.average_score || b.recipient.average_score }).page(params[:page]).per(10)
+    elsif params[:order] == "recipient"
+        @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.recipient.average_score <=> b.recipient.average_score }).page(params[:page]).per(10)
+    elsif params[:order] == "lopsided"
+        @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| abs(a.recipient.average_score - a.sender.average_score) <=> abs(b.recipient.average_score - b.sender.average_score) }).page(params[:page]).per(10)
+    else
+      @conversations = Conversation.all.order("created_at DESC").page(params[:page]).per(20)
+    end
+
   end
 
   def show

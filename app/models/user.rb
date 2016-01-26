@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
       end
       (sum / ratings.count.to_f).round(2)
     else
-      "N/A"
+      0
     end
   end
 
@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
       end
       (sum / ratings.count.to_f).round(2)
     else
-      "N/A"
+      0
     end
   end
 
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
       end
       sum
     else
-      "N/A"
+      0
     end
   end
 
@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
       end
       sum
     else
-      "N/A"
+      0
     end
   end
 
@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
       end
       sum
     else
-      "N/A"
+      0
     end
   end
 
