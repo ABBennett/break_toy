@@ -73,4 +73,5 @@ class User < ActiveRecord::Base
       "N/A"
     end
   end
+
 end
