@@ -12,4 +12,5 @@ class Conversation < ActiveRecord::Base
   def includes?(user)
     sender == user || recipient == user
   end
+
 end

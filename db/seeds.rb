@@ -17,29 +17,37 @@ end
 
 200.times do
   users_array = User.all
-  conversations << Conversation.new(
+  conversation = Conversation.new(
     sender: users_array.shuffle.pop,
     recipient: users_array.shuffle.pop,
     title: Faker::Hacker.noun,
   )
+  conversation.created_at = (rand*20).days.ago
+  conversations << conversation
 end
 
 conversations.each do |conversation|
   conversation.save!
 end
 
-1000.times do
+5000.times do
   conversation = Conversation.all.sample
-  messages << Message.new(
+  message = Message.new(
     body: Faker::Hipster.sentence,
     conversation: conversation,
     user: conversation.sender,
   )
-  messages << Message.new(
+  message.created_at = Date.today + rand(200).minutes
+  time = message.created_at
+  messages << message
+
+  message2 = Message.new(
     body: Faker::Hipster.sentence,
     conversation: conversation,
     user: conversation.recipient,
   )
+  message2.created_at = time + rand(300).minutes
+  messages << message2
 end
 messages.each do |message|
   message.save!

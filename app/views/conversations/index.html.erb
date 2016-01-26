@@ -1,4 +1,24 @@
 <h1>Index of Conversations</h1>
-<% @conversations.each do |conversation| %>
-<li><%= link_to "Talk between #{conversation.sender.username} and #{conversation.recipient.username}", conversation_path(conversation) %></li>
+<% @conversations.each do |c| %>
+  <li><%= link_to "Talk between #{c.sender.username} and #{c.recipient.username}", conversation_path(c) %></li>
+  <li><%= c.sender.average_score %></li>
+  <li><%= link_to "#{c.sender.username}", user_path(c.sender) %></li>
+
+  <li><%= c.recipient.average_score %></li>
+  <li><%= link_to "#{c.recipient.username}", user_path(c.recipient) %></li>
+  <p>
+    <% if !c.messages.empty? %>
+      <%= distance_of_time_in_words(c.messages.first.created_at, c.messages.last.created_at) %>
+      <% end %>
+  </p>
+  <p>
+    <% if !c.messages.empty? %>
+      <%= "#{c.messages.count} message(s)" %>
+      <% end %>
+  </p>
+
+  <li datetime="<%= c.created_at %>" title="<%= c.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
+    on <%= c.created_at.strftime("%d %b  %Y at %I:%M%p") %>
+  </li>
+  <hr>
 <% end %>
