@@ -8,10 +8,19 @@
 
 <h5><%= @user.email %></h5>
 
+<h3>Unanswered</h3>
+<h4><%= @new_messages.count %></h4>
+  <% @new_messages.each do |conversation| %>
+    <li><%= link_to "#{conversation.sender.username} wants to chat", conversation_path(conversation) %></li>
+  <% end %>
 
-  <h3>New Conversations</h3>
+
+  <h3>New & Unrated Conversations</h3>
+  <h4><%= @conversations.count %></h4>
     <% @conversations.each do |conversation| %>
+      <% if conversation.rated? == false %>
       <li><%= link_to "#{conversation.sender.username} wants to chat", conversation_path(conversation) %></li>
+      <% end %>
     <% end %>
 <% if !@ratings.empty?  %>
 <h3>Pointed Talks</h3>
