@@ -16,11 +16,7 @@ class UsersController < ApplicationController
     @ratings = Rating.where(ratee_id: params[:id])
     @rates = Rating.where(rater_id: params[:id])
 
-    @new_messages = unanswered_unrated(@user)
-  end
-
-  def unanswered_unrated(user)
-    unanswered & all_unrated_conversations(user)
+    @new_messages = unanswered
   end
 
   def all_unrated_conversations(user)
@@ -34,11 +30,13 @@ class UsersController < ApplicationController
   def unanswered
     unanswered = []
     all_unrated_conversations(@user).each do |conversation|
-      if conversation.messages.empty? || conversation.messages.last.user != @user
+      if !conversation.messages.empty? && conversation.messages.last.user != @user
         unanswered << conversation
       end
     end
     unanswered
   end
+
+
 
 end
