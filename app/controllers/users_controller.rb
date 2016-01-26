@@ -37,6 +37,4 @@ class UsersController < ApplicationController
     unanswered
   end
 
-
-
 end
