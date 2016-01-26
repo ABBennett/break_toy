@@ -46,7 +46,7 @@ end
     conversation: conversation,
     user: conversation.recipient,
   )
-  message2.created_at = time + rand(300).minutes
+  message2.created_at = time + rand(10).minutes
   messages << message2
 end
 messages.each do |message|
