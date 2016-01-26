@@ -2,6 +2,7 @@ class ConversationsController < ApplicationController
   before_action :signed_in_flash, only: [:create]
   # before_action :participant?, only: [:show]
   def index
+    @conversations = Conversation.all.order("created_at")
   end
 
   def show

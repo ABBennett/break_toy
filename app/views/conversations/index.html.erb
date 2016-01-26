@@ -1,1 +1,4 @@
 <h1>Index of Conversations</h1>
+<% @conversations.each do |conversation| %>
+<li><%= link_to "Talk between #{conversation.sender.username} and #{conversation.recipient.username}", conversation_path(conversation) %></li>
+<% end %>
