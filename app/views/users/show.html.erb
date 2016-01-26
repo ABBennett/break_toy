@@ -1,5 +1,20 @@
+<div class="score-messages-container column small-12">
+  <div class="score-username-container column small-5">
+    <h1 class="column small-3"><%= @user.average_score %>
+    </h1>
+    <h3 class="username column small-9"><%= @user.username %></h3>
+  </div>
 
-<h1><%= @user.username %>: <%= @user.average_score %></h1>
+  <div class="new-messages-container column small-5">
+    <% if user_signed_in? && current_user == @user %>
+      <h3><%= @new_messages.count %> new message(s)</h3>
+      <% @new_messages.each do |conversation| %>
+        <li><%= link_to "#{conversation.messages.last.user.username} wants to talk!", conversation_path(conversation) %></li>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <h5>average rating given: <%= @user.average_rate %> </h5>
 <h5>total received: <%= @user.total %> </h5>
 <h5>total given: <%= @user.total_rates %> </h5>
@@ -8,12 +23,7 @@
 
 <h5><%= @user.email %></h5>
 
-<% if user_signed_in? && current_user == @user %>
-  <h3><%= @new_messages.count %> new message(s)</h3>
-  <% @new_messages.each do |conversation| %>
-    <li><%= link_to "#{conversation.messages.last.user.username} wants to talk!", conversation_path(conversation) %></li>
-  <% end %>
-<% end %>
+
 
 
 <% if !@ratings.empty?  %>

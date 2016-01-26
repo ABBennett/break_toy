@@ -1,0 +1,28 @@
+.score-username-container {
+  background-color: $grey;
+  padding: 0;
+  text-align: center;
+  height: 80px;
+}
+
+.score-username-container h1 {
+  font-size: 60px;
+  margin: 10px 0 0 0;
+  padding: 0;
+  text-align: left;
+  float: left;
+}
+
+.score-username-container h3 {
+  float: left;
+  text-align: left;
+  margin: 40px 0 0 0;
+  padding: none;
+  font-size: 30px;
+}
+
+.new-messages-container {
+  background-color: $grey-light1;
+  padding: 0;
+  height: 250px;
+}
