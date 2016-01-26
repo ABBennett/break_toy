@@ -24,13 +24,29 @@
 .new-messages-container {
   background-color: $grey-light1;
   padding: 0;
-  height: 250px;
+  overflow: hidden;
+   box-shadow: 3px 3px 3px #888888;
 }
 
-.new-messages-container h3 {
+.new-messages-container.hover {
+  transform: translateY(1px);
+}
+
+.new-messages-container h4 {
   text-align: center;
-  border-bottom: 1px;
+  margin: 0;
   border-bottom-color: $black;
+}
+
+.new-message-container {
+  list-style: none;
+  background-color: $grey-light2;
+  padding: 2px 2px 2px 4px;
+  margin: 1px 0 1px 0;
+}
+
+.new-message-username {
+  display: block;
 }
 
 .new-message-body a {
