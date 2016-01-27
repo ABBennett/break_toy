@@ -5,16 +5,22 @@ class ConversationsController < ApplicationController
   def index
     if params[:order] == "totalpoints"
       @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.sender.average_score + a.recipient.average_score <=> b.sender.average_score + b.recipient.average_score }).page(params[:page]).per(10)
+      @memo = "Classiest: This sorts by the classiest talk between the highest scored users"
     elsif params[:order] == "message"
         @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.messages.count <=> b.messages.count }).page(params[:page]).per(10)
+        @memo = "Chattiest: This displays the chattiest talks first, in order of message count"
     elsif params[:order] == "points"
         @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.sender.total + a.recipient.total <=> b.sender.total + b.recipient.total }).page(params[:page]).per(10)
+        @memo = "Pointiest: This sorts talks by cumulative Talking Points"
     elsif params[:order] == "sender"
       @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.sender.average_score || a.recipient.average_score <=> b.sender.average_score || b.recipient.average_score }).page(params[:page]).per(10)
+      @memo = "Top Sender: This sorts talks by the highest scored sender"
     elsif params[:order] == "recipient"
         @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.recipient.average_score <=> b.recipient.average_score }).page(params[:page]).per(10)
+        @memo = "Top Recipient: This sorts talks by the highest scored recipient"
     elsif params[:order] == "lopsided"
-        @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| abs(a.recipient.average_score - a.sender.average_score) <=> abs(b.recipient.average_score - b.sender.average_score) }).page(params[:page]).per(10)
+        @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| (a.recipient.average_score - a.sender.average_score).abs <=> (b.recipient.average_score - b.sender.average_score).abs }).page(params[:page]).per(10)
+        @memo = "Lopsided: This sorts talks by the ones with the greatest difference between user's score"
     else
       @conversations = Conversation.all.order("created_at DESC").page(params[:page]).per(20)
     end
