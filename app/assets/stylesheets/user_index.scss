@@ -1,26 +1,33 @@
+@mixin shadow1 {
+  box-shadow: 1px 1px 1px #888888;
+}
+@mixin shadow2 {
+  box-shadow: 2px 2px 2px #888888;
+}
+@mixin shadow3 {
+  box-shadow: 3px 3px 3px #888888;
+}
+@mixin shadow4 {
+  box-shadow: 4px 4px 4px #888888;
+}
+
 .user {
+  @include shadow2;
   background-color: $grey-light1;
   margin: 10px;
   padding: 5px;
   border: 0;
-  border-radius: 5px;
-  box-shadow: 0 5px $grey;
+  &:hover {
+    // background-color: $grey-light;
+    @include shadow4;
+  }
+  &:active {
+    @include shadow1;
+  }
 }
 
 .user li {
   color: $black;
   font-size: 22px;
   list-style: none;
-}
-
-.user:hover {
-  background-color: $grey-light;
-  transform: translateY(2px);
-  box-shadow: 0 3px $grey;
-}
-
-.user:active {
-  background-color: $grey-light1;
-  box-shadow: 0 1px $grey;
-  transform: translateY(4px);
 }
