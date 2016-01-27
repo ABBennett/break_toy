@@ -2,8 +2,11 @@
   <% @users.each do |user| %>
     <%= link_to user_path(user) do %>
       <div class="user" id=<%="username#{user.id}"%>>
-        <li><%= user.username %></li>
-        <li><%= user.average_score %></li>
+        <div class="score-username-container-show column small-12">
+          <li class="score-show <%= user.score_color %>"><%= user.average_score %></li>
+          <li class="username-show"><%= user.username %></li>
+        </div>
+
         <li>total: <%= user.total %></li>
       <%= form_for @conversation do |f| %>
         <%= f.hidden_field :recipient_id, value: user.id %>
