@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     @rates = Rating.where(rater_id: params[:id])
 
     @new_messages = unanswered
+
+    @rated_convos = all_rated_conversations(@user).order("created_at DESC")
   end
 
   def all_unrated_conversations(user)
@@ -25,6 +27,14 @@ class UsersController < ApplicationController
           .where(conversations: {sender_id: user.id})
           .where_values.reduce(:or))
           .where(conversations: {rated?: false})
+  end
+
+  def all_rated_conversations(user)
+    b = Conversation.where(
+          Conversation.where(conversations: {recipient_id: user.id})
+          .where(conversations: {sender_id: user.id})
+          .where_values.reduce(:or))
+          .where(conversations: {rated?: true})
   end
 
   def unanswered

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :conversations
   has_many :ratings
+  has_many :messages, through: :conversation
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates :username, presence: true
@@ -73,5 +74,14 @@ class User < ActiveRecord::Base
       0
     end
   end
+
+  # def messages_count 
+  #   sum = 0
+  #   conversations = Conversation.where(
+  #         Conversation.where(conversations: {recipient_id: user.id})
+  #         .where(conversations: {sender_id: user.id})
+  #         .where_values.reduce(:or))
+  #   conversations.each do |c|
+  #     c.messages
 
 end

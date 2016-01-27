@@ -25,20 +25,22 @@
   <div class="stat-name">Points Given:</div><div class="stat"><%= @user.total_rates %></div>
 </div>
 
-<div class="rated-container">
-  <% if !@ratings.empty?  %>
+<div class="rated-convos-container">
   <h3>Pointed Talks</h3>
-    <% @ratings.each do |rating| %>
-      <li>
-        <%= link_to "#{rating.score}: #{rating.rater.username} ", conversation_path(rating.conversation) %>
-        <%= "#{rating.conversation.messages.count} messages" %>
-        <time datetime="<%= rating.conversation.created_at %>" title="<%= rating.conversation.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
-          • at <%= rating.conversation.created_at.strftime("%H:%M %p") %>
-         </time>
-         <% if !rating.conversation.messages.empty? %>
-         (<%= distance_of_time_in_words rating.messages.first.created_at, rating.messages.last.created_at %>)
-         <% end %>
-      </li>
+    <% @rated_convos.each do |c| %>
+      <%= link_to conversation_path(c) do %>
+        <div class="rated-convo-container">
+          <li class="rated-convo-title"><%= "#{c.sender.username} & #{c.recipient.username}"%></li>
+
+          <li class="rated-convo-info"><%= c.messages.count%> message(s)
+            <time datetime="<%= c.created_at %>" title="<%= c.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
+               at <%= c.created_at.strftime("%H:%M %p") %>
+             </time>
+             <% if !c.messages.empty? %>
+             (<%= distance_of_time_in_words c.messages.first.created_at, c.messages.last.created_at %>)
+             <% end %>
+          </li>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
 </div>

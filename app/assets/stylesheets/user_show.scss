@@ -107,3 +107,38 @@
   float: left;
   clear: both;
 }
+
+.rated-convos-container {
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+.rated-convos-container h3 {
+  float: left;
+  margin: 20px;
+}
+
+.rated-convo-container {
+  clear: both;
+  @include shadow2;
+  list-style: none;
+  background-color: $grey-light1;
+  margin: 8px 20px 8px 20px;
+  &:hover {
+    // background-color: $grey-light1;
+    @include shadow4;
+  }
+}
+
+.rated-convo-title {
+  color: $grey-dark;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0 0 0 5px;
+}
+
+.rated-convo-info {
+  font-weight: 300;
+  padding: 0 0 0 5px;
+}
