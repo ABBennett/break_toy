@@ -21,11 +21,15 @@
       <div class="message-count">
         <% if !c.messages.empty? %>
           <%= "#{c.messages.count} message(s)" %>
-          <% end %>
+        <% else %>
+          <%= "0 message(s)" %>
+        <% end %>
       </div>
       <div class="message-time-words">
         <% if !c.messages.empty? %>
           <%= distance_of_time_in_words(c.messages.first.created_at, c.messages.last.created_at) %>
+          <% else %>
+          <%= "..." %>
           <% end %>
       </div>
 
