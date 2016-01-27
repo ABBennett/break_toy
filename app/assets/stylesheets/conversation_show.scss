@@ -3,16 +3,23 @@
   display: inline;
 }
 
+.score li {
+  list-style: none;
+}
+
 #ratee {
   text-align: left;
+  float: left;
 }
 
 #rater {
   text-align: right;
+  float: right;
 }
 
 .chat-title {
-  float: left;
+  clear: both;
+  float: none;
   text-align: center;
 }
 
