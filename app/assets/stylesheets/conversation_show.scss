@@ -1,19 +1,3 @@
-@mixin shadow {
-  border: 3px solid white;
-  border-radius: 10px;
--webkit-box-shadow:
-  inset 0 0 8px  rgba(0,0,0,0.1),
-        0 0 16px rgba(0,0,0,0.1);
--moz-box-shadow:
-  inset 0 0 8px  rgba(0,0,0,0.1),
-        0 0 16px rgba(0,0,0,0.1);
-box-shadow:
-  inset 0 0 8px  rgba(0,0,0,0.1),
-        0 0 16px rgba(0,0,0,0.1);
-padding: 10px;
-background: rgba(255,255,255,0.5);
-margin: 0 0 5px 0;
-}
 
 .title-scores-container {
   display: inline;
@@ -60,20 +44,21 @@ margin: 0 0 5px 0;
 }
 
 .chatboxmessagecontent {
+  @include shadow2;
     padding: 10px;
     border-radius: 3px;
     word-wrap: break-word;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .self .chatboxmessagecontent {
-  background-color: $silver;
+  background-color: $grey-l;
   order: 1;
   border-radius: 8px;
   border-bottom-right-radius: 0;
 }
 .other .chatboxmessagecontent {
-  background-color: $grey;
+  background-color: $green-d;
   border-radius: 8px;
   border-bottom-left-radius: 0px;
 }
@@ -111,15 +96,18 @@ margin: 0 0 5px 0;
 // }
 
 .chatboxcontent {
+  @include shadow2;
   height:60%;
+  width: 98%;
+  margin: auto;
   overflow:auto;
-  background:#fff;
+  background-color: $silver;
   line-height: 1em;
   list-style: none;
 }
 
 .chatboxcontent div {
-    background-color: $white;
+    // background-color: $white;
     padding: 0.5rem;
     overflow: hidden;
     display: flex;
