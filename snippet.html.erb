@@ -1,0 +1,26 @@
+<li class="convo-title"><%= link_to "Talk between #{c.sender.username} and #{c.recipient.username}", conversation_path(c) %></li>
+
+<div class="user-score-container column small-12">
+  <li class="user-score"><%= c.sender.average_score %></li>
+  <li class="convo-user"><%= link_to "#{c.sender.username}", user_path(c.sender) %></li>
+</div>
+
+<div class="user-score-container">
+  <li class="user-score"><%= c.recipient.average_score %></li>
+  <li class="convo-user"><%= link_to "#{c.recipient.username}", user_path(c.recipient) %></li>
+</div>
+
+<p>
+  <% if !c.messages.empty? %>
+    <%= distance_of_time_in_words(c.messages.first.created_at, c.messages.last.created_at) %>
+    <% end %>
+</p>
+<p>
+  <% if !c.messages.empty? %>
+    <%= "#{c.messages.count} message(s)" %>
+    <% end %>
+</p>
+
+<li datetime="<%= c.created_at %>" title="<%= c.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
+  on <%= c.created_at.strftime("%d %b  %Y at %I:%M%p") %>
+</li>

@@ -1,0 +1,76 @@
+@mixin shadow1 {
+  box-shadow: 1px 1px 1px #888888;
+}
+@mixin shadow2 {
+  box-shadow: 2px 2px 2px #888888;
+}
+@mixin shadow3 {
+  box-shadow: 3px 3px 3px #888888;
+}
+@mixin shadow4 {
+  box-shadow: 4px 4px 4px #888888;
+}
+
+.conversation-container {
+  @include shadow2;
+  background-color: $grey-light1;
+  margin: 10px 10px 10px 10px;
+  padding: 5px;
+  list-style: none;
+  &:hover {
+    @include shadow4;
+    // background-color: $grey-light2;
+  }
+}
+
+.all-talks {
+  padding: 5px;  
+}
+
+.convo-title {
+  font-size: 17px;
+  font-weight: bold;
+  color: $grey;
+  padding: 0 0 0 5px;
+  &:hover {
+    font-size: 18px;
+  }
+}
+.convo-user a{
+  font-size: 14px;
+  // font-weight: bold;
+  // color: $grey;
+  &:hover {
+    font-size: 15px;
+  }
+}
+.user-score-container {
+  margin: 0 0 0 0;
+  padding: 0 0 0 5px;
+}
+
+.user-score-container li {
+  float: left;
+}
+
+.user-score {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.date {
+  text-align: right;
+  margin: -25px 0 0 0;
+  color: $grey;
+}
+
+.message-count {
+  font-size: 16px;
+  padding: 0 0 0 5px;
+}
+
+.message-time-words {
+  font-size: 14px;
+  padding: 0 0 0 5px;
+
+}

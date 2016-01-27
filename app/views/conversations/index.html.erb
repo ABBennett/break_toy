@@ -1,28 +1,39 @@
-<h1>All Talks</h1>
+<h1 class="all-talks">All Talks</h1>
 <p>
   <%= @memo %>
 </p>
 <% @conversations.each do |c| %>
-  <li><%= link_to "Talk between #{c.sender.username} and #{c.recipient.username}", conversation_path(c) %></li>
-  <li><%= c.sender.average_score %></li>
-  <li><%= link_to "#{c.sender.username}", user_path(c.sender) %></li>
 
-  <li><%= c.recipient.average_score %></li>
-  <li><%= link_to "#{c.recipient.username}", user_path(c.recipient) %></li>
-  <p>
-    <% if !c.messages.empty? %>
-      <%= distance_of_time_in_words(c.messages.first.created_at, c.messages.last.created_at) %>
+    <div class="conversation-container">
+      <%= link_to conversation_path(c) do %>
+        <div class="convo-title column small-12"><%= "Talk between #{c.sender.username} and #{c.recipient.username}"%></div>
       <% end %>
-  </p>
-  <p>
-    <% if !c.messages.empty? %>
-      <%= "#{c.messages.count} message(s)" %>
-      <% end %>
-  </p>
 
-  <li datetime="<%= c.created_at %>" title="<%= c.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
-    on <%= c.created_at.strftime("%d %b  %Y at %I:%M%p") %>
-  </li>
-  <hr>
+      <div class="user-score-container column small-12">
+        <li class="user-score"><%="#{c.sender.average_score}-" %></li>
+        <li class="convo-user"><%= link_to "#{c.sender.username}", user_path(c.sender) %></li>
+      </div>
+      <div class="user-score-container column small-12">
+        <li class="user-score"><%= "#{c.recipient.average_score}-" %></li>
+        <li class="convo-user"><%= link_to "#{c.recipient.username}", user_path(c.recipient) %></li>
+      </div>
+
+      <div class="message-count">
+        <% if !c.messages.empty? %>
+          <%= "#{c.messages.count} message(s)" %>
+          <% end %>
+      </div>
+      <div class="message-time-words">
+        <% if !c.messages.empty? %>
+          <%= distance_of_time_in_words(c.messages.first.created_at, c.messages.last.created_at) %>
+          <% end %>
+      </div>
+
+
+      <div class="date" datetime="<%= c.created_at %>" title="<%= c.created_at.strftime("%d %b  %Y at %I:%M%p") %>">
+         <%= c.created_at.strftime("at %I:%M%p, %b %d  %Y ") %>
+      </div>
+    </div>
 <% end %>
+
 <%= paginate @conversations %>

@@ -1,17 +1,17 @@
 <div class="title-scores-container clearfix">
-  <div class="score column small-4" id="ratee">
+  <div class="score" id="ratee">
     <h2 class="rating"><%= link_to "#{@conversation.sender.username}", user_path(@conversation.sender)%>: <%= @conversation.sender.average_score %></h2>
-    <li>Average rating given: <%= @conversation.sender.average_rate%></li>
+    <li>Talking Points: <%= @conversation.sender.total%></li>
   </div>
-  <h2 class="chat-title column small-4">
+
+  <div class="score" id="rater">
+    <h2 class="rating"><%= link_to "#{@conversation.recipient.username}", user_path(@conversation.recipient)%>: <%= @conversation.recipient.average_score %></h2>
+    <li>Talking Points: <%= @conversation.recipient.total%></li>
+  </div>
+
+  <h2 class="chat-title">
     Chatroom with <%= link_to "#{@conversation.sender.username}", user_path(@conversation.sender)%>
     & <%= link_to "#{@conversation.recipient.username}", user_path(@conversation.recipient)%></h2>
-
-
-  <div class="score column small-4" id="rater">
-    <h2 class="rating"><%= link_to "#{@conversation.recipient.username}", user_path(@conversation.recipient)%>: <%= @conversation.recipient.average_score %></h2>
-    <li>Average rating given: <%= @conversation.recipient.average_rate%></li>
-  </div>
   </div>
 </div>
 
