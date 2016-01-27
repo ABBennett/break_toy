@@ -1,3 +1,16 @@
+@mixin shadow1 {
+  box-shadow: 1px 1px 1px #888888;
+}
+@mixin shadow2 {
+  box-shadow: 2px 2px 2px #888888;
+}
+@mixin shadow3 {
+  box-shadow: 3px 3px 3px #888888;
+}
+@mixin shadow4 {
+  box-shadow: 3px 3px 3px #888888;
+}
+
 input[type="submit"] {
   font-size: px;
 

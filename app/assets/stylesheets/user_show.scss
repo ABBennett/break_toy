@@ -1,0 +1,109 @@
+@mixin shadow1 {
+  box-shadow: 1px 1px 1px #888888;
+}
+@mixin shadow2 {
+  box-shadow: 2px 2px 2px #888888;
+}
+@mixin shadow3 {
+  box-shadow: 3px 3px 3px #888888;
+}
+@mixin shadow4 {
+  box-shadow: 4px 4px 4px #888888;
+}
+
+.topcorner{
+   position:absolute;
+   top:-20px;
+   right:10px;
+  }
+
+  .score-messages-container {
+    margin: 0 10px 0 0;
+  }
+
+.score-username-container {
+  @include shadow1;
+  min-width: 150px;
+  float: left;
+  clear: left;
+  background-color: $grey-light1;
+  margin-top: 13px;
+  padding: 0;
+  text-align: center;
+  height: 80px;
+  overflow: hidden;
+}
+
+.score-username-container h1 {
+  font-size: 60px;
+  // margin: 10px 0 0 0;
+  padding: 5px 0 0 5px;
+  text-align: left;
+  float: left;
+}
+
+.score-username-container h3 {
+  float: left;
+  text-align: left;
+  margin: 40px 0 0 0;
+  padding: 0 0 0 20px;
+  font-size: 30px;
+}
+
+.new-messages-container {
+  padding: 0;
+  overflow: hidden;
+}
+
+.new-messages-container h4 {
+  text-align: center;
+  margin: 0;
+  border-bottom-color: $black;
+}
+
+.new-message-container {
+  @include shadow1;
+  float: right;
+  list-style: none;
+  background-color: $grey-light2;
+  padding: 2px 2px 2px 4px;
+  margin: 2px 0 2px 0;
+  &:hover {
+    background-color: $grey-light1;
+    @include shadow2;
+  }
+}
+
+.new-message-username a {
+  color: $black;
+  display: block;
+}
+
+.new-message-body a {
+  color: $green;
+}
+
+.stats-container {
+  @include shadow1;
+  background: $grey-light2;
+  float: left;
+  width: 30%;
+  margin: 23px 0 10px 13px;
+  padding: 5px;
+}
+
+.stat-name {
+  float: left;
+  clear:left;
+  padding: 10px;
+}
+
+.stat{
+  float: right;
+  padding: 10px;
+}
+
+.rated-container {
+  float: left;
+  clear: both;
+}
