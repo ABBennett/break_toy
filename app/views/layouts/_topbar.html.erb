@@ -26,8 +26,20 @@
     </ul>
 
     <!-- Left Nav Section -->
+    <!-- Left Nav Section -->
     <ul class="left">
-      <li><a href="#">Left Nav Button</a></li>
+      <li class="has-dropdown">
+        <a href="/conversations">Conversations</a>
+        <ul class="dropdown">
+          <li class="sign-in"><%= link_to "Classiest", conversations_path(order: "totalpoints") %></li>
+          <li class="sign-in"><%= link_to "Chattiest", conversations_path(order: "message") %></li>
+          <li class="sign-in"><%= link_to "Pointiest", conversations_path(order: "points") %></li>
+          <li class="sign-in"><%= link_to "Top Sender", conversations_path(order: "sender") %></li>
+          <li class="sign-in"><%= link_to "Top Recipient", conversations_path(order: "recipient") %></li>
+          <li class="sign-in"><%= link_to "Lopsided", conversations_path(order: "lopsided") %></li>
+
+        </ul>
+      </li>
     </ul>
   </section>
 </nav>
