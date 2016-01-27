@@ -11,6 +11,7 @@ gem 'faker'
 gem 'private_pub'
 gem 'thin'
 gem 'foreman'
+gem 'kaminari'
 
 
 # Use postgresql as the database for Active Record
