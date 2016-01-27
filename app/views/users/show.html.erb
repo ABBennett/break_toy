@@ -6,7 +6,7 @@
   </div>
 
   <div class="new-messages-container topcorner column small-5">
-    <% if user_signed_in? %>
+    <% if user_signed_in? && current_user == @user%>
       <h4><%= @new_messages.count %> new message(s)</h4>
       <% @new_messages.each do |c| %>
         <div class="new-message-container column small-12">
