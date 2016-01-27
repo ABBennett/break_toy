@@ -15,7 +15,6 @@
   @include shadow2;
   background-color: $grey-light1;
   margin: 10px;
-  padding: 0;
   border: 0;
   &:hover {
     // background-color: $grey-light;
@@ -26,18 +25,42 @@
   }
 }
 
-.score-username-container-show{
+.user li {
+  list-style: none;
+  padding: 0 0 0 5px;
+}
+
+.user button {
+  // float: left;
+  // clear: left;
+  margin: 0 0 13px 5px;
+}
+
+.index-stat {
+  color: $grey-dark;
+}
+
+.date-user-index {
+  margin: -40px 0 0 0px;
+  padding: 5px;
+  text-align: right;
+  color: $grey;
+}
+
+
+.score-username-container-index{
   float: left;
   padding: 0 0 0 0;
 }
-.username-show {
+.username-index {
   float: left;
   margin: 3px 0 0 20px;
   font-size: 20px;
   list-style: none;
 }
 
-.score-show {
+.score-index {
+  @include shadow4;
   float: left;
   top: 0;
   left: 0;

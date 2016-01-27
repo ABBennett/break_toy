@@ -2,16 +2,20 @@
   <% @users.each do |user| %>
     <%= link_to user_path(user) do %>
       <div class="user" id=<%="username#{user.id}"%>>
-        <div class="score-username-container-show column small-12">
-          <li class="score-show <%= user.score_color %>"><%= user.average_score %></li>
-          <li class="username-show"><%= user.username %></li>
+        <div class="score-username-container-index column small-12">
+          <li class="score-index <%= user.score_color %>"><%= user.average_score %></li>
+          <li class="username-index"><%= user.username %></li>
         </div>
 
-        <li>total: <%= user.total %></li>
+        <li class="index-stat">Talking Points: <%= user.total %></li>
+        <li class="index-stat">Talking Points: <%= user.total %></li>
       <%= form_for @conversation do |f| %>
         <%= f.hidden_field :recipient_id, value: user.id %>
-        <%= f.button "Chat", id: user.id %>
+        <%= f.button "Talk", id: user.id %>
       <% end %>
+      <div class="date-user-index">
+         <%= user.created_at.strftime("member since %b %d  %Y ") %>
+      </div>
     <% end %>
   </div>
     <hr/>
