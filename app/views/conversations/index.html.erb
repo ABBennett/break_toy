@@ -1,4 +1,7 @@
-<h1>Index of Conversations</h1>
+<h1>All Talks</h1>
+<p>
+  <%= @memo %>
+</p>
 <% @conversations.each do |c| %>
   <li><%= link_to "Talk between #{c.sender.username} and #{c.recipient.username}", conversation_path(c) %></li>
   <li><%= c.sender.average_score %></li>
