@@ -1,3 +1,23 @@
+
+
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 102%;
+  min-height: 100%inherit;
+  margin: 50px 0 0 0;
+  width: auto;
+   height: auto;
+   z-index: -100;
+   -ms-transform: translateX(-50%) translateY(-50%);
+   -moz-transform: translateX(-50%) translateY(-50%);
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   background: url(polina.jpg) no-repeat;
+   background-size: cover;
+}
+
 #welcome-title {
   font-size: 50px;
   text-align: center;
