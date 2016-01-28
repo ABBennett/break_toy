@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'users#index'
+  root 'welcomes#show'
 
   resources :users
   resources :conversations do
