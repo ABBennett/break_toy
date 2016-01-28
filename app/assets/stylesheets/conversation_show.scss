@@ -4,8 +4,25 @@
 }
 
 .score li {
+  clear:both;
   list-style: none;
 }
+
+#ratee span {
+  float: left;
+}
+#rater span {
+  float: right;
+}
+
+.rating span {
+  background: $grey;
+  font-size: 40px;
+  margin: 5px;
+  width: 65px;
+  text-align: center;
+}
+
 
 #ratee {
   text-align: left;
@@ -29,8 +46,10 @@
 // }
 
 .chatboxmessagecontent time {
-    font-size: 9px;
-    color: #ccc;
+    font-size: 10px;
+    color: $grey-dark;
+    margin: 0 0 0 5px;
+    clear: both;
 }
 
 .self {
@@ -51,7 +70,7 @@
 }
 
 .chatboxmessagecontent {
-  @include shadow2;
+  @include shadow3;
     padding: 10px;
     border-radius: 3px;
     word-wrap: break-word;
@@ -71,7 +90,7 @@
 }
 
 .created-at {
-  font-size: 10px;
+  font-size: 100px;
 }
 
 .username {

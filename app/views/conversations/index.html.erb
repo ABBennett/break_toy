@@ -1,5 +1,5 @@
-<h1 class="all-talks">All Talks</h1>
-<p>
+<a href="/conversations"><h1 class="all-talks">All Talks</h1></a>
+<p class="memo">
   <%= @memo %>
 </p>
 <% @conversations.each do |c| %>
@@ -10,11 +10,11 @@
       <% end %>
 
       <div class="user-score-container column small-12">
-        <li class="user-score"><%="#{c.sender.average_score}-" %></li>
-        <li class="convo-user"><%= link_to "#{c.sender.username}", user_path(c.sender) %></li>
+        <li class="user-score <%= c.sender.score_color %>"><%="#{c.sender.average_score}" %></li>
+        <li class="convo-user"><%= link_to " :#{c.sender.username}", user_path(c.sender) %></li>
       </div>
       <div class="user-score-container column small-12">
-        <li class="user-score"><%= "#{c.recipient.average_score}-" %></li>
+        <li class="user-score <%= c.recipient.score_color %>"><%= "#{c.recipient.average_score}" %></li>
         <li class="convo-user"><%= link_to "#{c.recipient.username}", user_path(c.recipient) %></li>
       </div>
 
@@ -24,13 +24,14 @@
         <% else %>
           <%= "0 message(s)" %>
         <% end %>
+
       </div>
       <div class="message-time-words">
         <% if !c.messages.empty? %>
           <%= distance_of_time_in_words(c.messages.first.created_at, c.messages.last.created_at) %>
-          <% else %>
+        <% else %>
           <%= "..." %>
-          <% end %>
+        <% end %>
       </div>
 
 
@@ -40,4 +41,6 @@
     </div>
 <% end %>
 
-<%= paginate @conversations %>
+<div class="pagination">
+  <%= paginate @conversations %>
+</div>

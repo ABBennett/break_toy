@@ -24,6 +24,7 @@ class ConversationsController < ApplicationController
         @memo = "Lopsided: This sorts talks by the ones with the greatest difference between user's score"
     else
       @conversations = Conversation.all.order("created_at DESC").page(params[:page]).per(20)
+      @memo = "Most Recent"
     end
   end
 

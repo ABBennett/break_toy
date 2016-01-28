@@ -29,8 +29,9 @@
     <!-- Left Nav Section -->
     <ul class="left">
       <li class="has-dropdown">
-        <a href="/conversations">Talks</a>
+        <a href="#">Talks</a>
         <ul class="dropdown">
+          <li class="sign-in"><%= link_to "Most Recent", conversations_path %></li>
           <li class="sign-in"><%= link_to "Classiest", conversations_path(order: "totalpoints") %></li>
           <li class="sign-in"><%= link_to "Chattiest", conversations_path(order: "message") %></li>
           <li class="sign-in"><%= link_to "Pointiest", conversations_path(order: "points") %></li>

@@ -24,11 +24,26 @@
 }
 
 .all-talks {
-  padding: 5px;  
+  @include shadow2;
+  padding: 10px;
+  margin: 10px;
+  color: $grey-light2;
+  background-color: $grey-dark;
+  float: left;
+  &:hover {
+    @include shadow4;
+    background-color: $grey;
+  }
+}
+
+.memo {
+  clear: both;
+  text-align: center;
+  font-size: 22px;
 }
 
 .convo-title {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bold;
   color: $grey;
   padding: 0 0 0 5px;
@@ -36,8 +51,14 @@
     font-size: 18px;
   }
 }
+
+.convo-user {
+  margin: 5px 0 0 5px;
+  font-weight: bold;
+}
 .convo-user a{
   font-size: 14px;
+  margin: 0 0 0 0;
   // font-weight: bold;
   // color: $grey;
   &:hover {
@@ -54,8 +75,14 @@
 }
 
 .user-score {
+  @include shadow2;
   font-size: 18px;
   font-weight: bold;
+  background-color: $grey;
+  margin: 3px 6px 3px 3px;
+  padding: 1px 1px 0 1px;
+  width: 35px;
+  text-align: center;
 }
 
 .date {

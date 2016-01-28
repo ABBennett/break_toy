@@ -1,14 +1,27 @@
+
+<a href="/users"><h1 class="all-talks">All Users</h1></a>
+
+<p class="memo">
+  <%= @memo %>
+</p>
 <% if !@users.empty? %>
   <% @users.each do |user| %>
     <%= link_to user_path(user) do %>
       <div class="user" id=<%="username#{user.id}"%>>
-        <li><%= user.username %></li>
-        <li><%= user.average_score %></li>
-        <li>total: <%= user.total %></li>
+        <div class="score-username-container-index column small-12">
+          <li class="score-index <%= user.score_color %>"><%= user.average_score %></li>
+          <li class="username-index"><%= user.username %></li>
+        </div>
+
+        <li class="index-stat">Talking Points: <%= user.total %></li>
+        <li class="index-stat">Talking Points: <%= user.total %></li>
       <%= form_for @conversation do |f| %>
         <%= f.hidden_field :recipient_id, value: user.id %>
-        <%= f.button "Chat", id: user.id %>
+        <%= f.button "Talk", id: user.id %>
       <% end %>
+      <div class="date-user-index">
+         <%= user.created_at.strftime("member since %b %d  %Y ") %>
+      </div>
     <% end %>
   </div>
     <hr/>

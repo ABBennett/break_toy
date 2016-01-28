@@ -1,11 +1,11 @@
 <div class="score-messages-container column small-12">
   <div class="score-username-container">
-    <h1 class=""><%= @user.average_score %>
+    <h1 class="<%= @user.score_color %>"><%= @user.average_score %>
     </h1>
-    <h3 class="username"><%= @user.username %></h3>
   </div>
+  <div class="username-show"><%= @user.username %></div>
 
-  <div class="new-messages-container topcorner column small-5">
+  <div class="new-messages-container topcorner column small-12 medium-5">
     <% if user_signed_in? && current_user == @user%>
       <h4><%= @new_messages.count %> new message(s)</h4>
       <% @new_messages.each do |c| %>
@@ -20,9 +20,12 @@
 
 <div class="stats-container">
   <div class="stat-name">Talking Points:</div><div class="stat"><%= @user.total %></div>
-  <div class="stat-name">perfect scores:</div><div class="stat"><%= @user.tens %></div>
+  <div class="stat-name">Perfect Scores:</div><div class="stat"><%= @user.tens %></div>
   <div class="stat-name">Avg Points Given:</div><div class="stat"><%= @user.average_rate %></div>
   <div class="stat-name">Points Given:</div><div class="stat"><%= @user.total_rates %></div>
+  <div class="stat-name">Conversations:</div><div class="stat"><%= @user.convo_count %></div>
+  <div class="stat-name">Messages Sent:</div><div class="stat"><%= @user.message_count %></div>
+  <div class="stat-name">Member since:</div><div class="stat"><%= @user.created_at.strftime("%b %d  %Y ") %></div>
 </div>
 
 <div class="rated-convos-container">

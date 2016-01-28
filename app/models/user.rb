@@ -75,13 +75,40 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def messages_count 
-  #   sum = 0
-  #   conversations = Conversation.where(
-  #         Conversation.where(conversations: {recipient_id: user.id})
-  #         .where(conversations: {sender_id: user.id})
-  #         .where_values.reduce(:or))
-  #   conversations.each do |c|
-  #     c.messages
+  def convo_count
+    Conversation.where(
+                Conversation.where(conversations: {recipient_id: self.id})
+                .where(conversations: {sender_id: self.id})
+                .where_values.reduce(:or))
+                .count
+  end
+
+  def message_count
+    Message.where(user_id: self.id).count
+  end
+
+  def score_color
+    if self.average_score >= 9.0
+      "nine"
+    elsif self.average_score >= 8.0
+      "eight"
+    elsif self.average_score >= 7.0
+      "seven"
+    elsif self.average_score >= 6.0
+      "six"
+    elsif self.average_score >= 5.0
+      "five"
+    elsif self.average_score >= 4.0
+      "four"
+    elsif self.average_score >= 3.0
+      "three"
+    elsif self.average_score >= 2.0
+      "two"
+    elsif self.average_score >= 1.0
+      "one"
+    else
+      "zero"
+    end
+  end
 
 end

@@ -15,7 +15,6 @@
   @include shadow2;
   background-color: $grey-light1;
   margin: 10px;
-  padding: 5px;
   border: 0;
   &:hover {
     // background-color: $grey-light;
@@ -27,7 +26,124 @@
 }
 
 .user li {
-  color: $black;
-  font-size: 22px;
   list-style: none;
+  padding: 0 0 0 5px;
+}
+
+.user button {
+  // float: left;
+  // clear: left;
+  margin: 0 0 13px 5px;
+}
+
+.index-stat {
+  color: $grey-dark;
+}
+
+.date-user-index {
+  margin: -40px 0 0 0px;
+  padding: 5px;
+  text-align: right;
+  color: $grey;
+}
+
+
+.score-username-container-index{
+  float: left;
+  padding: 0 0 0 0;
+}
+.username-index {
+  float: left;
+  margin: 3px 0 0 20px;
+  font-size: 20px;
+  list-style: none;
+}
+
+.score-index {
+  @include shadow4;
+  float: left;
+  top: 0;
+  left: 0;
+  margin: 0 0 0 0px;
+  padding: 5px;
+  width: 60px;
+  font-size: 26px;
+  text-align: center;
+  color: $black;
+  background-color: $grey;
+  list-style: none;
+}
+
+.ten {
+  color: $ten;
+}
+
+.nine-5 {
+  color: $nine-5;
+}
+.nine {
+  color: $nine;
+}
+
+.eight-5 {
+  color: $eight-5;
+}
+.eight {
+  color: $eight;
+}
+
+.seven-5 {
+  color: $seven-5;
+}
+.seven {
+  color: $seven;
+}
+
+.six-5 {
+  color: $six-5;
+}
+.six {
+  color: $six;
+}
+
+.five-5 {
+  color: $five-5;
+}
+.five {
+  color: $five;
+}
+
+.four-5 {
+  color: $four-5;
+}
+.four {
+  color: $four;
+}
+
+.three-5 {
+  color: $three-5;
+}
+.three {
+  color: $three;
+}
+
+.two-5 {
+  color: $two-5;
+}
+.two {
+  color: $two;
+}
+
+.one-5 {
+  color: $one-5;
+}
+.one {
+  color: $one;
+}
+
+.zero-5 {
+  color: $zero-5;
+}
+.zero {
+  color: $zero;
 }
