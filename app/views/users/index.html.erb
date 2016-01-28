@@ -1,3 +1,7 @@
+<h1 class="all-talks">All Users</h1>
+<p class="memo">
+  <%= @memo %>
+</p>
 <% if !@users.empty? %>
   <% @users.each do |user| %>
     <%= link_to user_path(user) do %>
