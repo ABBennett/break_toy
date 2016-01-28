@@ -1,3 +1,43 @@
 #welcome-title {
   font-size: 50px;
+  text-align: center;
+  margin: 30% 0 2% 0;
+}
+.button {
+  @include shadow3;
+  color: #fff;
+  background-color: $green-dark;
+  border: none;
+  border-radius: 5px;
+  margin: 0 0 5px 0;
+  padding: 10px 15px 10px 15px;
+  &:hover {
+    @include shadow2;
+    background-color: $green;
+    // transform: translateY(1px);
+    // box-shadow: 0 4px $green-dark2;
+  }
+  &:active {
+    @include shadow1;
+    background-color: $green-dark1;
+    // transform: translateY(4px);
+    // box-shadow: 0 1px $green-dark2;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+.accounts {
+  text-align: center;
+  margin: 0 0 0 0;
+}
+
+.sign-in-p {
+
+}
+
+.sign-in-a {
+  color: $green-dark;
+  font-weight: bold;
 }
