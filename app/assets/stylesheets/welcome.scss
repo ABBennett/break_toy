@@ -7,11 +7,8 @@
 // }
 
 video {
-  position: fixed;
-  top: 100px;
+  position: relative;
   left: 50%;
-  height: 60%;
-  margin: 0 0 0 0;
   width: 100%;
    height: auto;
    z-index: -100;
@@ -26,7 +23,7 @@ video {
 #welcome-title {
   font-size: 50px;
   text-align: center;
-  margin: 30% 0 2% 0;
+  margin: 0 0 0 0;
 }
 .button {
   @include shadow3;
