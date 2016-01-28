@@ -31,13 +31,27 @@
       <li class="has-dropdown">
         <a href="#">Talks</a>
         <ul class="dropdown">
-          <li class="sign-in"><%= link_to "Most Recent", conversations_path %></li>
+          <li class="sign-in"><%= link_to "Newest", conversations_path %></li>
           <li class="sign-in"><%= link_to "Classiest", conversations_path(order: "totalpoints") %></li>
           <li class="sign-in"><%= link_to "Chattiest", conversations_path(order: "message") %></li>
           <li class="sign-in"><%= link_to "Pointiest", conversations_path(order: "points") %></li>
           <li class="sign-in"><%= link_to "Top Sender", conversations_path(order: "sender") %></li>
           <li class="sign-in"><%= link_to "Top Recipient", conversations_path(order: "recipient") %></li>
           <li class="sign-in"><%= link_to "Lopsided", conversations_path(order: "lopsided") %></li>
+
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#">Users</a>
+        <ul class="dropdown">
+          <li class="sign-in"><%= link_to "Newest", users_path%></li>
+          <li class="sign-in"><%= link_to "Classiest", users_path(order: "average") %></li>
+          <li class="sign-in"><%= link_to "Trashiest", users_path(order: "averagedesc") %></li>
+          <li class="sign-in"><%= link_to "Chattiest", users_path(order: "messagecount") %></li>
+          <li class="sign-in"><%= link_to "Quietest", users_path(order: "messagecountdesc") %></li>
+          <li class="sign-in"><%= link_to "Pointiest", users_path(order: "ttlpts") %></li>
+          <li class="sign-in"><%= link_to "Flatest", users_path(order: "totaldesc") %></li>
 
         </ul>
       </li>

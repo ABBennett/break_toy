@@ -11,6 +11,7 @@ feature "visitor visits a conversation show page" do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Log in'
+      visit users_path
     end
 
     scenario "signed in user clicks 'Start Conversation'" do
@@ -25,7 +26,7 @@ feature "visitor visits a conversation show page" do
     let!(:user2) { FactoryGirl.create(:user) }
 
     scenario "not signed in user clicks 'Start Conversation'" do
-      visit root_path
+      visit users_path
       first(:button, "Talk").click
 
       expect(page).to have_content("You must sign in to start a conversation")

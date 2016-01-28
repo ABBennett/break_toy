@@ -15,6 +15,7 @@ feature "visitor sees a list of other users" do
     end
 
     scenario "sees a list of other users" do
+      visit users_path
       expect(page).to have_link user1.username
       expect(page).to have_content user2.username
       expect(page).to have_content "Signed in as #{user.username}"
