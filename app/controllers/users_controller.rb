@@ -22,8 +22,11 @@ class UsersController < ApplicationController
       @users = User.all.sort{ |a,b| a.total <=> b.total }
         @memo = ""
     else
-      @conversations = Conversation.all.order("created_at DESC").page(params[:page]).per(20)
-      @memo = "Most Recent"
+      if user_signed_in?
+        @users = User.where.not("id = ?",current_user.id).order("created_at DESC")
+      else
+        @users = User.all
+      end
     end
   end
 
