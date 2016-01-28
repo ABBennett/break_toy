@@ -11,7 +11,7 @@ feature "visitor visits a conversation show page" do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
       click_button 'Log in'
-      click_button("Chat")
+      click_button("Talk")
       fill_in "Body", with: "Hey man!"
       click_button "Send"
     end

@@ -44,7 +44,7 @@ feature "user visits a conversation show page" do
     scenario "authorized user visits conversation show page" do
       visit conversation_path(conversation)
 
-      expect(page).to have_content("Chatroom")
+      expect(page).to have_content("Talk between")
       expect(page).to have_css('form.new_message')
       expect(page).to have_css('form.new_rating')
     end
