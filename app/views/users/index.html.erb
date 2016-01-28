@@ -14,7 +14,7 @@
         </div>
 
         <li class="index-stat">Talking Points: <%= user.total %></li>
-        <li class="index-stat">Talking Points: <%= user.total %></li>
+        <li class="index-stat">Points Given: <%= user.total_rates %></li>
       <%= form_for @conversation do |f| %>
         <%= f.hidden_field :recipient_id, value: user.id %>
         <%= f.button "Talk", id: user.id %>
