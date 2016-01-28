@@ -24,12 +24,16 @@
 }
 
 .all-talks {
-  @include shadow4;
+  @include shadow2;
   padding: 10px;
   margin: 10px;
   color: $grey-light2;
   background-color: $grey-dark;
   float: left;
+  &:hover {
+    @include shadow4;
+    background-color: $grey;
+  }
 }
 
 .memo {
