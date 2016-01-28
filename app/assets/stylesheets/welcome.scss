@@ -1,13 +1,18 @@
-
+// .vidcontainer {
+//   position: absolute;
+//   width: 100%;
+//   top: 50%;
+//   left: 50%;
+//   margin: -100px 0 0 0;
+// }
 
 video {
   position: fixed;
-  top: 50%;
+  top: 100px;
   left: 50%;
-  min-width: 102%;
-  min-height: 100%inherit;
-  margin: 50px 0 0 0;
-  width: auto;
+  height: 60%;
+  margin: 0 0 0 0;
+  width: 100%;
    height: auto;
    z-index: -100;
    -ms-transform: translateX(-50%) translateY(-50%);
