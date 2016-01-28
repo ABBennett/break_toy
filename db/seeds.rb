@@ -15,7 +15,7 @@ users.each do |user|
   user.save!(validate: false)
 end
 
-200.times do
+40.times do
   users_array = User.all
   conversation = Conversation.new(
     sender: users_array.shuffle.pop,
@@ -30,7 +30,7 @@ conversations.each do |conversation|
   conversation.save!
 end
 
-5000.times do
+200.times do
   conversation = Conversation.all.sample
   message = Message.new(
     body: Faker::Hipster.sentence,
