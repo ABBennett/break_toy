@@ -2,12 +2,28 @@ class UsersController < ApplicationController
   # before_filter :authenticate_user!
 
   def index
-    if user_signed_in?
-      @users = User.where.not("id = ?",current_user.id).order("created_at DESC")
-      @conversation = Conversation.new
+    @conversation = Conversation.new
+    if params[:order] == "average"
+      @users = User.all.sort{ |b,a| a.average_score <=> b.average_score }
+      @memo = ""
+    elsif params[:order] == "averagedesc"
+      @users = User.all.sort{ |a,b| a.average_score <=> b.average_score }
+        @memo = ""
+    elsif params[:order] == "messagecount"
+        @users = User.all.sort{ |b,a| a.message_count <=> b.message_count}
+        @memo = ""
+    elsif params[:order] == "messagecountdesc"
+        @users = User.all.sort{ |a,b| a.message_count <=> b.message_count}
+        @memo = ""
+    elsif params[:order] == "ttlpts"
+      @users = User.all.sort{ |b,a| a.total <=> b.total }
+        @memo = ""
+    elsif params[:order] == "totaldesc"
+      @users = User.all.sort{ |a,b| a.total <=> b.total }
+        @memo = ""
     else
-      @users = User.all
-      @conversation = Conversation.new
+      @conversations = Conversation.all.order("created_at DESC").page(params[:page]).per(20)
+      @memo = "Most Recent"
     end
   end
 
