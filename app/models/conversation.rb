@@ -14,4 +14,11 @@ class Conversation < ActiveRecord::Base
     sender == user || recipient == user
   end
 
+  def self.chattiest
+    select("conversations.*, COALESCE(COUNT(messages.id), 0) AS message_count")
+    .joins("LEFT JOIN messages ON messages.conversation_id = conversations.id")
+    .group("conversations.id")
+    .order("message_count DESC")
+  end
+
 end

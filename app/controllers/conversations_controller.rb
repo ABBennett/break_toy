@@ -7,7 +7,8 @@ class ConversationsController < ApplicationController
       @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.sender.average_score + a.recipient.average_score <=> b.sender.average_score + b.recipient.average_score }).page(params[:page]).per(10)
       @memo = "Classiest: This sorts by the classiest talk between the highest scored users"
     elsif params[:order] == "message"
-        @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.messages.count <=> b.messages.count }).page(params[:page]).per(10)
+        # @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.messages.count <=> b.messages.count }).page(params[:page]).per(10)
+        @conversations = Conversation.chattiest.page(params[:page]).per(10)
         @memo = "Chattiest: This displays the chattiest talks first, in order of message count"
     elsif params[:order] == "points"
         @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.sender.total + a.recipient.total <=> b.sender.total + b.recipient.total }).page(params[:page]).per(10)
