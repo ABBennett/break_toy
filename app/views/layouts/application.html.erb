@@ -19,6 +19,29 @@
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
-
+    <footer class="footer">
+        <div class="row">
+          <div class="small-12 medium-6 large-5 columns">
+            <a href="/"><%= image_tag("TalkingPointsAlpha.png", class: "img-title-footer")%></a>
+              <p class="copywrite">Alex Bennett © 2016</p>
+              <p class="copywrite">Logo by Tim Troiano © 2016</p>
+          </div>
+          <div class="small-12 medium-6 large-4 columns">
+            <ul class="contact">
+              <li><p><i class="fi-marker"></i>Boston, MA</p></li>
+              <li><p><i class="fi-telephone"></i>1-914-323-8315</p></li>
+              <li><p><i class="fi-mail"></i>contact_me@viaLinkedIn.com</p></li>
+            </ul>
+          </div>
+          <div class="small-12 medium-12 large-3 columns">
+            <ul class="inline-list social">
+              <a href="https://www.facebook.com/alex.bennett.7"><i class="fi-social-facebook"></i></a>
+              <a href="https://www.linkedin.com/in/alexanderbondbennett"><i class="fi-social-linkedin"></i></a>
+              <a href="https://www.github.com/ABBennett"><i class="fi-social-github"></i></a>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
   </body>
 </html>

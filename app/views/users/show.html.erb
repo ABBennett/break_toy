@@ -1,6 +1,6 @@
 <div class="score-messages-container column small-12">
   <div class="score-username-container">
-    <h1 class="<%= @user.score_color %>"><%= @user.average_score %>
+    <h1 class="<%= @user.score_color %>" id="show-score"><%= @user.average_score %>
     </h1>
   </div>
   <div class="username-show"><%= @user.username %></div>
@@ -19,13 +19,13 @@
 </div>
 
 <div class="stats-container">
-  <div class="stat-name">Talking Points:</div><div class="stat"><%= @user.total %></div>
-  <div class="stat-name">Perfect Scores:</div><div class="stat"><%= @user.tens %></div>
-  <div class="stat-name">Avg Points Given:</div><div class="stat"><%= @user.average_rate %></div>
-  <div class="stat-name">Points Given:</div><div class="stat"><%= @user.total_rates %></div>
-  <div class="stat-name">Conversations:</div><div class="stat"><%= @user.convo_count %></div>
-  <div class="stat-name">Messages Sent:</div><div class="stat"><%= @user.message_count %></div>
-  <div class="stat-name">Member since:</div><div class="stat"><%= @user.created_at.strftime("%b %d  %Y ") %></div>
+  <div class="stat-name">Talking Points:</div><div class="stat" id="stat"><%= @user.total %></div>
+  <div class="stat-name">Perfect Scores:</div><div class="stat" id="stat1"><%= @user.tens %></div>
+  <div class="stat-name">Avg Points Given:</div><div class="stat" id="stat2"><%= @user.average_rate %></div>
+  <div class="stat-name">Points Given:</div><div class="stat" id="stat3"><%= @user.total_rates %></div>
+  <div class="stat-name">Conversations:</div><div class="stat" id="stat4"><%= @user.convo_count %></div>
+  <div class="stat-name">Messages Sent:</div><div class="stat" id="stat5"><%= @user.message_count %></div>
+  <div class="stat-name">Member since:</div><div class="stat-date" id="stat6"><%= @user.created_at.strftime("%b %d  %Y ") %></div>
 </div>
 
 <div class="rated-convos-container">

@@ -124,7 +124,7 @@ $warning-color: #f08a24;
 $info-color: #a0d3e8;
 
 // We use these to control various global styles
-$body-bg: $white;
+$body-bg: $grey-light;
 // $body-font-color: $jet;
 $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
@@ -1407,13 +1407,14 @@ $topbar-bg-color: $black;
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-$topbar-height: rem-calc(28);
+
+
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
 $topbar-title-weight: $font-weight-bold;
 $topbar-title-font-size: rem-calc(34);
-
+$topbar-height: rem-calc(45);
 // Set the link colors and styles for top-level nav
 $topbar-link-color: $white;
 $topbar-link-color-hover: $green;
@@ -1429,9 +1430,9 @@ $topbar-link-bg-active: $black;
 $topbar-link-bg-active-hover: $black;
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
-$topbar-link-padding: ($topbar-height / 2);
-$topbar-back-link-size: rem-calc(18);
-$topbar-link-dropdown-padding: rem-calc(50);
+$topbar-link-padding: ($topbar-height / 5);
+$topbar-back-link-size: rem-calc(15);
+$topbar-link-dropdown-padding: rem-calc(10);
 // $topbar-button-font-size: .75rem;
 // $topbar-button-top: 7px;
 
@@ -1442,7 +1443,7 @@ $topbar-dropdown-link-color: $black;
 $topbar-dropdown-link-bg: $white;
 $topbar-dropdown-link-bg-hover: scale-color($white, $lightness: -10%);
 $topbar-dropdown-link-weight: $font-weight-bold;
-$topbar-dropdown-toggle-size: 12px;
+$topbar-dropdown-toggle-size: 5px;
 $topbar-dropdown-toggle-color: $green;
 $topbar-dropdown-toggle-alpha: 1;
 

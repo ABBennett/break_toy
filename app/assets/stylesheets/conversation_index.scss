@@ -10,28 +10,37 @@
 @mixin shadow4 {
   box-shadow: 4px 4px 4px #888888;
 }
+@mixin shadow5 {
+  box-shadow: 5px 5px 5px #888888;
+}
+@mixin shadow6 {
+  box-shadow: 6px 6px 6px #888888;
+}
+@mixin shadow7 {
+  box-shadow: 7px 7px 7px #888888;
+}
 
 .conversation-container {
   @include shadow2;
   background-color: $grey-light1;
-  margin: 10px 10px 10px 10px;
+  margin: 15px 10px 15px 10px;
   padding: 5px;
   list-style: none;
   &:hover {
-    @include shadow4;
-    // background-color: $grey-light2;
+    @include shadow7;
+    // background-color: $grey-l;
   }
 }
 
 .all-talks {
-  @include shadow2;
+  @include shadow3;
   padding: 10px;
   margin: 10px;
   color: $grey-light2;
   background-color: $grey-dark;
   float: left;
   &:hover {
-    @include shadow4;
+    @include shadow7;
     background-color: $grey;
   }
 }
@@ -47,9 +56,6 @@
   font-weight: bold;
   color: $grey;
   padding: 0 0 0 5px;
-  &:hover {
-    font-size: 18px;
-  }
 }
 
 .convo-user {
@@ -75,7 +81,7 @@
 }
 
 .user-score {
-  @include shadow2;
+  @include shadow3;
   font-size: 18px;
   font-weight: bold;
   background-color: $grey;

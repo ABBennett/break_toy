@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require private_pub
+//= require jquery.animateNumber
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
