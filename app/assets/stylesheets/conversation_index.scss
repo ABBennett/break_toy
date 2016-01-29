@@ -48,14 +48,15 @@
 .memo {
   clear: both;
   text-align: center;
-  font-size: 22px;
+  font-size: 26px;
 }
 
 .convo-title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
-  color: $grey;
+  color: $grey-dark;
   padding: 0 0 0 5px;
+  text-shadow: 1px 1px #444644;
 }
 
 .convo-user {

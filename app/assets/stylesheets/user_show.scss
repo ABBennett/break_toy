@@ -88,9 +88,9 @@
 
 .stats-container {
   @include shadow3;
-  background: $grey-light2;
+  background: $grey-light1;
   float: left;
-  width: 30%;
+  width: 300px;
   margin: 23px 0 10px 13px;
   padding: 5px;
 }
