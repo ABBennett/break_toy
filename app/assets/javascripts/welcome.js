@@ -5,7 +5,11 @@ $(document).ready(function (){
   // setTimeout(function() {
   //     $("#app-info").css("opacity", 0).animate({ opacity: 1}, 2000);
   // }, 0);
-
+  $( "#rate-submit" ).click(function() {
+    $( ".rating-form" ).fadeOut( "slow", function() {
+      // Animation complete.
+    });
+  });
 
 
 });

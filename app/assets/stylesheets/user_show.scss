@@ -17,12 +17,16 @@
    right:10px;
   }
 
+  #show-score {
+    text-shadow: 3px 3px $grey-dark;
+  }
+
   // .score-messages-container {
   //   margin: 0 10px 0 0;
   // }
 
 .score-username-container {
-  @include shadow2;
+  @include shadow4;
   padding: 0 25px 0 25px;
   float: left;
   clear: left;
@@ -38,6 +42,7 @@
 }
 
 .username-show {
+  text-shadow: 3px 3px #888888;
   float: left;
   padding: -100px 0 0 20px;
   margin: -15px 0 0 20px;
@@ -56,15 +61,15 @@
 }
 
 .new-message-container {
-  @include shadow1;
+  @include shadow3;
   float: right;
   list-style: none;
   background-color: $grey-light2;
-  padding: 2px 2px 2px 4px;
+  padding: 2px 2px 3px 4px;
   margin: 2px 0 2px 0;
   &:hover {
     background-color: $grey-light1;
-    @include shadow2;
+    @include shadow7;
   }
 }
 
@@ -78,7 +83,7 @@
 }
 
 .stats-container {
-  @include shadow1;
+  @include shadow3;
   background: $grey-light2;
   float: left;
   width: 30%;
@@ -121,13 +126,13 @@
 
 .rated-convo-container {
   clear: both;
-  @include shadow2;
+  @include shadow3;
   list-style: none;
   background-color: $grey-light1;
   margin: 8px 20px 8px 20px;
   &:hover {
     // background-color: $grey-light1;
-    @include shadow4;
+    @include shadow6;
   }
 }
 
