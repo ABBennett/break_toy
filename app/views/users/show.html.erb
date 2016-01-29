@@ -7,7 +7,7 @@
 
   <div class="new-messages-container topcorner column small-12 medium-5">
     <% if user_signed_in? && current_user == @user%>
-      <h4><%= @new_messages.count %> new message(s)</h4>
+      <h4 class="inbox"><%= @new_messages.count %> new message(s)</h4>
       <% @new_messages.each do |c| %>
         <div class="new-message-container column small-12">
           <li class="new-message-username"><%= link_to "#{c.messages.last.user.username}:", user_path(c.messages.last.user) %></li>
@@ -29,7 +29,7 @@
 </div>
 
 <div class="rated-convos-container">
-  <h3>Pointed Talks</h3>
+  <h3 class="inbox">Pointed Talks</h3>
     <% @rated_convos.each do |c| %>
       <%= link_to conversation_path(c) do %>
         <div class="rated-convo-container">

@@ -10,11 +10,18 @@ a {
   list-style: none;
 }
 
+.rating {
+  text-shadow: 1px 1px #444644;
+}
+
 #ratee span {
   float: left;
+  text-shadow: 2px 2px #484646;
 }
 #rater span {
   float: right;
+  text-shadow: 2px 2px #484646;
+
 }
 
 .rating span {
