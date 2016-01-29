@@ -1,18 +1,21 @@
-<h1 id="welcome-title">Begin talking today!</h1>
 
-<div class="accounts">
-  <form action="/users/sign_up">
-    <input class="button" type="submit" value="Sign up">
-  </form>
+<div class="welcome-text">
+  <h1 id="welcome-title">Begin talking today!</h1>
 
-  <div class="sign-in-welcome">
-    <p class="sign-in-p">
-      Already have an account? <a class="sign-in-a" href="/users/sign_in">Sign in here.</a>
-    </p>
+  <div class="accounts">
+    <form action="/users/sign_up">
+      <input id="welcome-signup" class="button" type="submit" value="Sign up">
+    </form>
+
+    <div class="sign-in-welcome">
+      <p class="sign-in-p">
+        Already have an account? <a class="sign-in-a" href="/users/sign_in">Sign in here.</a>
+      </p>
+    </div>
   </div>
 </div>
-<div class="vidcontainer">
-  <video autoplay loop id="bgvid">
-    <source src="https://www.dropbox.com/s/p10gd6awhkwe28o/test-2-welcome.mp4?dl=1" type="video/mp4">
-  </video>
-</div>
+  <div class="vidcontainer">
+    <video id="welcome-video" autoplay loop id="bgvid">
+      <source src="https://www.dropbox.com/s/p10gd6awhkwe28o/test-2-welcome.mp4?dl=1" type="video/mp4">
+    </video>
+  </div>

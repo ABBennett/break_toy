@@ -1,29 +1,33 @@
-// .vidcontainer {
-//   position: absolute;
-//   width: 100%;
-//   top: 50%;
-//   left: 50%;
-//   margin: -100px 0 0 0;
-// }
+.vidcontainer {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  margin: 0 0 0 0;
+}
 
 video {
-  position: relative;
+  position: fixed;
   left: 50%;
   width: 100%;
+  margin-top: 39px;
    height: auto;
    z-index: -100;
    -ms-transform: translateX(-50%) translateY(-50%);
    -moz-transform: translateX(-50%) translateY(-50%);
    -webkit-transform: translateX(-50%) translateY(-50%);
    transform: translateX(-50%) translateY(-50%);
-   background: url(polina.jpg) no-repeat;
    background-size: cover;
+}
+
+.welcome-text {
+  margin: 400px 0 0 0;
 }
 
 #welcome-title {
   font-size: 50px;
   text-align: center;
-  margin: 0 0 0 0;
+  margin: 0 0 30px 0;
 }
 .button {
   @include shadow3;
