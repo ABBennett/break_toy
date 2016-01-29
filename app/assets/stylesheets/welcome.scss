@@ -1,16 +1,27 @@
+
+
+#box {
+  z-index: 200;
+  height: 300px;
+  margin: 100px 0 -100px 0;
+  text-align: center;
+  width: auto;
+}
+
+
 .vidcontainer {
   position: absolute;
   width: 100%;
   top: 50%;
   left: 50%;
-  margin: 0 0 0 0;
+  margin: -105px 0 0 0;
 }
 
 video {
   position: fixed;
   left: 50%;
   width: 100%;
-  margin-top: 39px;
+  margin-top: 0px;
    height: auto;
    z-index: -100;
    -ms-transform: translateX(-50%) translateY(-50%);
@@ -20,8 +31,15 @@ video {
    background-size: cover;
 }
 
+.hidden {
+  display: none;
+}
+.visuallyhidden {
+  opacity: 0;
+}
+
 .welcome-text {
-  margin: 400px 0 0 0;
+  margin: 200px 0 0 0;
 }
 
 #welcome-title {

@@ -1,5 +1,31 @@
-footer {
-  background-color: $grey-l;
+// body {
+//   margin: 0;
+//   padding: 0;
+//   height: 100%
+// }
+//
+// #container {
+//   min-height: 100%;
+//   position: relative;
+// }
+//
+// #body {
+//    padding:10px;
+//    padding-bottom:300px;   /* Height of the footer */
+// }
+//
+// #footer {
+//   position:absolute;
+//     bottom:0;
+//     width:100%;
+//     height:120px;   /* Height of the footer */
+//     background: $grey-dark;
+// }
+
+.footer {
+  background-color: $grey-dark;
+  float: left;
+  width: 100%;
 }
 
 .img-title-footer {
