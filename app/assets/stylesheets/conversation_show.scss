@@ -80,7 +80,7 @@ a {
 }
 
 .self .chatboxmessagecontent {
-  background-color: $grey-l;
+  background-color: #71D8CF;
   order: 1;
   border-radius: 8px;
   border-bottom-right-radius: 0;
@@ -128,10 +128,12 @@ a {
   height:60%;
   width: 98%;
   margin: auto;
+  margin-bottom: 25px;
   overflow:auto;
   background-color: $silver;
   line-height: 1em;
   list-style: none;
+
 }
 
 .chatboxcontent div {
