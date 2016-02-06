@@ -1,13 +1,11 @@
 class ConversationsController < ApplicationController
   before_action :signed_in_flash, only: [:create]
-  # before_action :participant?, only: [:show]
 
   def index
     if params[:order] == "totalpoints"
       @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.sender.average_score + a.recipient.average_score <=> b.sender.average_score + b.recipient.average_score }).page(params[:page]).per(10)
       @memo = "Classiest: This sorts by the classiest talk between the highest scored users"
     elsif params[:order] == "message"
-        # @conversations = Kaminari.paginate_array(Conversation.all.sort{ |b,a| a.messages.count <=> b.messages.count }).page(params[:page]).per(10)
         @conversations = Conversation.chattiest.page(params[:page]).per(10)
         @memo = "Chattiest: This displays the chattiest talks first, in order of message count"
     elsif params[:order] == "points"
@@ -69,11 +67,4 @@ class ConversationsController < ApplicationController
     end
   end
 
-  # def participant?
-  #   @conversation = Conversation.find(params[:id])
-  #   unless (current_user.id == @conversation.recipient_id) || (current_user.id == @conversation.sender_id)
-  #     redirect_to users_path
-  #     flash[:alert] = 'You are not authorized to enter this chat'
-  #   end
-  # end
 end
