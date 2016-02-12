@@ -133,4 +133,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  def in_conversation?(conversation)
+    self == conversation.sender || self == conversation.recipient
+  end
 end
